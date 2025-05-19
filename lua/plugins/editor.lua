@@ -79,4 +79,12 @@ return {
     event = "LazyFile",
     opts = {},
   },
+
+  {
+    "andrewferrier/debugprint.nvim",
+    -- version = "*", -- Remove if you DON'T want to use the stable version
+    event = "LazyFile",
+    -- lazy = false, -- Required to make line highlighting work before debugprint is first used
+    opts = {},
+  },
 }
