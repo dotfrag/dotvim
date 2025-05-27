@@ -71,8 +71,8 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
           end
 
-          map("cr", vim.lsp.buf.rename, "Rename")
-          map("ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
+          map("<leader>cr", vim.lsp.buf.rename, "Rename")
+          map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
 
           -- the following are defined in snacks.lua
           -- map("gd", vim.lsp.buf.definition, "Goto Definition")
@@ -141,12 +141,12 @@ return {
             end
           end
 
-          -- Inlay hints
-          if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
-            map("<leader>th", function()
-              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-            end, "Toggle Inlay Hints")
-          end
+          -- -- Inlay hints (currently using snacks for this)
+          -- if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+          --   map("<leader>th", function()
+          --     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+          --   end, "Toggle Inlay Hints")
+          -- end
         end,
       })
 
