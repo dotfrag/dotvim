@@ -9,6 +9,17 @@ setmetatable(M, {
   end,
 })
 
+-- https://github.com/LazyVim/LazyVim/blob/25abbf546d564dc484cf903804661ba12de45507/lua/lazyvim/util/init.lua#L118-L126
+---@param name string
+function M.opts(name)
+  local plugin = require("lazy.core.config").spec.plugins[name]
+  if not plugin then
+    return {}
+  end
+  local Plugin = require("lazy.core.plugin")
+  return Plugin.values(plugin, "opts", false)
+end
+
 ---@param long_format? boolean
 function M.modeline(long_format)
   local tabstop = vim.bo.tabstop

@@ -207,9 +207,7 @@ return {
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     config = function()
-      local plugin = require("lazy.core.config").spec.plugins["nvim-lspconfig"]
-      local Plugin = require("lazy.core.plugin")
-      local opts = Plugin.values(plugin, "opts", false)
+      local opts = Util.opts("nvim-lspconfig")
       local ensure_installed = vim.tbl_keys(opts.servers or {})
       vim.list_extend(ensure_installed, opts.ensure_installed)
       require("mason-tool-installer").setup({
