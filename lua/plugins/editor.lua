@@ -85,6 +85,6 @@ return {
     -- version = "*", -- Remove if you DON'T want to use the stable version
     event = "LazyFile",
     -- lazy = false, -- Required to make line highlighting work before debugprint is first used
-    opts = {},
+    opts = { display_counter = false },
   },
 }
