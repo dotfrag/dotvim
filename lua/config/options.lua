@@ -1,5 +1,5 @@
 -- Plugin options
-vim.g.pairs = "blinkpairs" -- autopairs or blinkpairs
+vim.g.pairs = "blinkpairs" -- minipairs, autopairs or blinkpairs
 vim.g.picker = "snacks" -- fzf or snacks
 vim.g.prettier_tool = "prettierd" -- prettier or prettierd
 vim.g.statusline = "lualine" -- lualine or heirline

@@ -32,18 +32,6 @@ return {
     end,
   },
 
-  -- {
-  --   "echasnovski/mini.pairs",
-  --   event = "LazyFile",
-  --   opts = {},
-  -- },
-
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    opts = {},
-  },
-
   {
     "echasnovski/mini.splitjoin",
     event = "LazyFile",
@@ -154,6 +142,7 @@ return {
       require("mini.files").setup(opts)
 
       local show_dotfiles = true
+      ---@diagnostic disable-next-line: unused-local
       local filter_show = function(fs_entry)
         return true
       end

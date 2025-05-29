@@ -1,5 +1,12 @@
 return {
   {
+    "echasnovski/mini.pairs",
+    enabled = vim.g.pairs == "mini",
+    event = "LazyFile",
+    opts = {},
+  },
+
+  {
     "windwp/nvim-autopairs",
     enabled = vim.g.pairs == "autopairs",
     event = "InsertEnter",
