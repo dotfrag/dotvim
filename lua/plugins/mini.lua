@@ -33,6 +33,12 @@ return {
   },
 
   {
+    "echasnovski/mini.operators",
+    event = "LazyFile",
+    opts = {},
+  },
+
+  {
     "echasnovski/mini.splitjoin",
     event = "LazyFile",
     opts = {},
