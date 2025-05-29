@@ -4,7 +4,7 @@ vim.g.picker = "snacks" -- fzf or snacks
 vim.g.prettier_tool = "prettierd" -- prettier or prettierd
 vim.g.statusline = "lualine" -- lualine or heirline
 
-local opt = vim.opt
+local opt = vim.o
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
@@ -21,14 +21,14 @@ opt.breakindent = true -- Visually indent wrapped lines
 opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true -- Show which line your cursor is on
-opt.diffopt:append("iwhite") -- Ignore whitespace in diff mode
+vim.opt.diffopt:append("iwhite") -- Ignore whitespace in diff mode
 opt.grepformat = "%f:%l:%c:%m" -- Set grep format
 opt.grepprg = "rg --vimgrep" -- Use ripgrep as grepprg
 opt.ignorecase = true -- Case-insensitive searching unless \C
 opt.inccommand = "split" -- Preview substitutions live, as you type!
 opt.laststatus = 3 -- Global statusline
 opt.list = true -- Display whitespace characters
-opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" } -- Strings to use in list mode
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" } -- Strings to use in list mode
 opt.mouse = "a" -- Enable mouse mode
 opt.number = true -- Show line number
 opt.relativenumber = true -- Relative line numbers
@@ -50,10 +50,10 @@ opt.wrap = false -- Disable line wrap
 
 -- Fold settings for ufo plugin.
 -- They need to be defined here instead of inside the plugin config because it causes issues with neotree.
-vim.o.foldcolumn = "0" -- 0 or 1
-vim.o.foldlevel = 99
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
+opt.foldcolumn = "0" -- 0 or 1
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
 
 -- Filetype mappings
 vim.filetype.add({
