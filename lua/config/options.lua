@@ -3,6 +3,7 @@ vim.g.pairs = "blinkpairs" -- minipairs, autopairs or blinkpairs
 vim.g.picker = "snacks" -- fzf or snacks
 vim.g.prettier_tool = "prettierd" -- prettier or prettierd
 vim.g.statusline = "lualine" -- lualine or heirline
+vim.g.folds = "origami" -- ufo or origami
 
 local opt = vim.o
 
@@ -50,10 +51,12 @@ opt.wrap = false -- Disable line wrap
 
 -- Fold settings for ufo plugin.
 -- They need to be defined here instead of inside the plugin config because it causes issues with neotree.
-opt.foldcolumn = "0" -- 0 or 1
-opt.foldlevel = 99
-opt.foldlevelstart = 99
-opt.foldenable = true
+if vim.g.folds == "ufo" then
+  opt.foldcolumn = "0" -- 0 or 1
+  opt.foldlevel = 99
+  opt.foldlevelstart = 99
+  opt.foldenable = true
+end
 
 -- Filetype mappings
 vim.filetype.add({
