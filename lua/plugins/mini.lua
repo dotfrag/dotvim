@@ -41,7 +41,11 @@ return {
   {
     "echasnovski/mini.splitjoin",
     event = "LazyFile",
-    opts = {},
+    opts = {
+      mappings = {
+        toggle = "gJ", -- prevent conflict with mini.operators `gs`
+      },
+    },
   },
 
   {
@@ -72,35 +76,36 @@ return {
     },
   },
 
-  {
-    "echasnovski/mini.indentscope",
-    event = "LazyFile",
-    opts = {
-      symbol = "│",
-      options = { try_as_border = true },
-    },
-    init = function()
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = {
-          "alpha",
-          "dashboard",
-          "fzf",
-          "help",
-          "lazy",
-          "lazyterm",
-          "mason",
-          "neo-tree",
-          "notify",
-          "toggleterm",
-          "Trouble",
-          "trouble",
-        },
-        callback = function()
-          vim.b.miniindentscope_disable = true
-        end,
-      })
-    end,
-  },
+  -- currently using snacks indent
+  -- {
+  --   "echasnovski/mini.indentscope",
+  --   event = "LazyFile",
+  --   opts = {
+  --     symbol = "│",
+  --     options = { try_as_border = true },
+  --   },
+  --   init = function()
+  --     vim.api.nvim_create_autocmd("FileType", {
+  --       pattern = {
+  --         "alpha",
+  --         "dashboard",
+  --         "fzf",
+  --         "help",
+  --         "lazy",
+  --         "lazyterm",
+  --         "mason",
+  --         "neo-tree",
+  --         "notify",
+  --         "toggleterm",
+  --         "Trouble",
+  --         "trouble",
+  --       },
+  --       callback = function()
+  --         vim.b.miniindentscope_disable = true
+  --       end,
+  --     })
+  --   end,
+  -- },
 
   {
     "echasnovski/mini.icons",
