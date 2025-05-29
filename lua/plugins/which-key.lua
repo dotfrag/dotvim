@@ -14,6 +14,7 @@ return {
         { "<leader>f", group = "file/find" },
         { "<leader>g", group = "git" },
         { "<leader>h", group = "hunks" },
+        { "<leader>ht", group = "toggle" },
         { "<leader>q", group = "quit/session" },
         { "<leader>r", group = "regex" },
         { "<leader>R", group = "rest" },
