@@ -40,10 +40,19 @@ return {
 
   {
     "echasnovski/mini.splitjoin",
-    event = "LazyFile",
+    keys = {
+      {
+        "<leader>cj",
+        function()
+          require("mini.splitjoin").toggle()
+        end,
+        desc = "Split/Join Code",
+      },
+    },
     opts = {
+      -- prevent conflict with mini.operators `gs`
       mappings = {
-        toggle = "gJ", -- prevent conflict with mini.operators `gs`
+        toggle = "<leader>cj",
       },
     },
   },
