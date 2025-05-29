@@ -60,6 +60,8 @@ return {
         vtsls = {},
 
         jsonls = {},
+
+        taplo = {},
       },
     },
     config = function(_, opts)
