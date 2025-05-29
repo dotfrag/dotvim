@@ -56,6 +56,7 @@ return {
 
   {
     "kevinhwang91/nvim-ufo",
+    enabled = vim.g.folds == "ufo",
     dependencies = "kevinhwang91/promise-async",
     event = "LazyFile",
     -- stylua: ignore
@@ -71,6 +72,18 @@ return {
           return { "treesitter", "indent" }
         end,
       })
+    end,
+  },
+
+  {
+    "chrisgrieser/nvim-origami",
+    enabled = vim.g.folds == "origami",
+    event = "LazyFile",
+    opts = {},
+    -- recommended: disable vim's auto-folding
+    init = function()
+      vim.opt.foldlevel = 99
+      vim.opt.foldlevelstart = 99
     end,
   },
 
