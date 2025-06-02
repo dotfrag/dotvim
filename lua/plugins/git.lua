@@ -83,6 +83,11 @@ return {
       },
     },
     opts = {
+      kind = "floating",
+      floating = {
+        width = 0.9,
+        height = 0.8,
+      },
       signs = {
         item = { "", "" },
         section = { "", "" },
