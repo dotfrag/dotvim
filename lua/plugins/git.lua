@@ -88,12 +88,7 @@ return {
       "nvim-lua/plenary.nvim",
       {
         "sindrets/diffview.nvim",
-        cmd = "DiffviewOpen",
-        keys = {
-          { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Diffview" },
-          { "<leader>gD", "<cmd>DiffviewFileHistory %<cr>", desc = "Diffview File" },
-          { "<leader>gd", "<cmd>DiffviewFileHistory<cr>", mode = "v", desc = "Diffview Selection" },
-        },
+        cmd = { "DiffviewOpen", "DiffviewFileHistory" },
       },
     },
     opts = {
