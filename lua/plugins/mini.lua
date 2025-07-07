@@ -58,6 +58,16 @@ return {
   },
 
   {
+    "echasnovski/mini.misc",
+    config = function()
+      local mm = require("mini.misc")
+      mm.setup_auto_root()
+      mm.setup_restore_cursor()
+      mm.setup_termbg_sync()
+    end,
+  },
+
+  {
     "echasnovski/mini.align",
     event = "LazyFile",
     opts = {},
