@@ -98,6 +98,25 @@ autocmd("BufWritePre", {
   command = "%sort",
 })
 
+-- Auto change to git root when opening a file or switching buffer
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  group = augroup("autocd-to-gitroot"),
+  callback = function()
+    local filepath = vim.api.nvim_buf_get_name(0)
+    if filepath == "" then
+      return
+    end -- skip unnamed buffers
+    local git_root = vim.fn.systemlist("git -C " .. vim.fn.fnameescape(vim.fn.fnamemodify(filepath, ":p:h")) .. " rev-parse --show-toplevel")[1]
+    if vim.v.shell_error == 0 and git_root ~= nil and git_root ~= "" then
+      local current_dir = vim.fn.getcwd()
+      if current_dir ~= git_root then
+        vim.cmd("lcd " .. git_root)
+        -- print("Changed directory to " .. git_root)
+      end
+    end
+  end,
+})
+
 -- Close fugitive buffers when navigating
 -- Probably not needed any more but leaving it here for reference
 -- autocmd BufReadPost fugitive://* set bufhidden=delete
