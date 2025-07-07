@@ -1,9 +1,10 @@
 -- Plugin options
+vim.g.abolish_no_mappings = true -- disable abolish keymaps
+vim.g.folds = "origami" -- ufo or origami
 vim.g.pairs = "autopairs" -- minipairs, autopairs or blinkpairs
 vim.g.picker = "snacks" -- fzf or snacks
 vim.g.prettier_tool = "prettierd" -- prettier or prettierd
 vim.g.statusline = "lualine" -- lualine or heirline
-vim.g.folds = "origami" -- ufo or origami
 
 local opt = vim.o
 
