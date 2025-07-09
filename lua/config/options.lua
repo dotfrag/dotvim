@@ -49,6 +49,7 @@ opt.title = true -- Set window title
 opt.undofile = true -- Save undo history
 opt.updatetime = 250 -- Swap file update time
 opt.wrap = false -- Disable line wrap
+opt.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize" -- Changes the effect of the `:mksession` command
 
 -- Fold settings for ufo plugin.
 -- They need to be defined here instead of inside the plugin config because it causes issues with neotree.
