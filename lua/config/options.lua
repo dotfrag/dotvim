@@ -23,25 +23,24 @@ opt.breakindent = true -- Visually indent wrapped lines
 opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true -- Show which line your cursor is on
-vim.opt.diffopt:append("iwhite") -- Ignore whitespace in diff mode
 opt.grepformat = "%f:%l:%c:%m" -- Set grep format
 opt.grepprg = "rg --vimgrep" -- Use ripgrep as grepprg
 opt.ignorecase = true -- Case-insensitive searching unless \C
 opt.inccommand = "split" -- Preview substitutions live, as you type!
 opt.laststatus = 3 -- Global statusline
 opt.list = true -- Display whitespace characters
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" } -- Strings to use in list mode
 opt.mouse = "a" -- Enable mouse mode
 opt.number = true -- Show line number
 opt.relativenumber = true -- Relative line numbers
 opt.scrolloff = 10 -- Lines of context
+opt.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize" -- Changes the effect of the `:mksession` command
 opt.shiftwidth = 2 -- Size of an indent
 opt.showmode = false -- Don't show the mode, since it's already in the status line
 opt.sidescrolloff = 10 -- Columns of context
 opt.signcolumn = "yes" -- Keep signcolumn on by default to prevent text shifting
 opt.smartcase = true -- Case-insensitive unless one or more capital letters
-opt.splitright = true -- Put new windows right of current
 opt.splitbelow = true -- Put new windows below current
+opt.splitright = true -- Put new windows right of current
 opt.tabstop = 2 -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
 opt.timeoutlen = 300 -- Decrease mapped sequence and which-key wait time
@@ -49,7 +48,8 @@ opt.title = true -- Set window title
 opt.undofile = true -- Save undo history
 opt.updatetime = 250 -- Swap file update time
 opt.wrap = false -- Disable line wrap
-opt.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize" -- Changes the effect of the `:mksession` command
+vim.opt.diffopt:append("iwhite") -- Ignore whitespace in diff mode
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" } -- Strings to use in list mode
 
 -- Fold settings for ufo plugin.
 -- They need to be defined here instead of inside the plugin config because it causes issues with neotree.
