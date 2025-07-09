@@ -41,7 +41,7 @@ return {
           event = "msg_show",
           any = {
             { find = "window%-picker" }, -- Neo-tree window picker warning
-            { find = "^/" }, -- Search pattern -- FIXME: :pwd
+            -- { find = "^/" }, -- Search pattern -- FIXME: :pwd
           },
         },
         opts = { skip = true },
