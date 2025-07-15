@@ -76,9 +76,17 @@ return {
     },
 
     sources = {
-      default = { "lsp", "path", "snippets", "buffer", "lazydev" },
+      default = { "lsp", "path", "snippets", "lazydev", "buffer" },
       providers = {
         lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
+        buffer = { -- https://github.com/nvim-lua/kickstart.nvim/pull/1642
+          score_offset = -100,
+          enabled = function()
+            local enabled_filetypes = { "markdown", "text" }
+            local filetype = vim.bo.filetype
+            return vim.tbl_contains(enabled_filetypes, filetype)
+          end,
+        },
       },
     },
 
