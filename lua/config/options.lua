@@ -23,6 +23,7 @@ opt.breakindent = true -- Visually indent wrapped lines
 opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true -- Show which line your cursor is on
+opt.exrc = true -- Enable project-local configuration (.nvim.lua)
 opt.grepformat = "%f:%l:%c:%m" -- Set grep format
 opt.grepprg = "rg --vimgrep" -- Use ripgrep as grepprg
 opt.ignorecase = true -- Case-insensitive searching unless \C
