@@ -22,16 +22,19 @@ local function setup_static()
       source = "if_many",
       -- prefix = "",
       spacing = 2,
-      format = function(diagnostic)
-        local diagnostic_message = {
-          [vim.diagnostic.severity.ERROR] = diagnostic.message,
-          [vim.diagnostic.severity.WARN] = diagnostic.message,
-          [vim.diagnostic.severity.INFO] = diagnostic.message,
-          [vim.diagnostic.severity.HINT] = diagnostic.message,
-        }
-        return diagnostic_message[diagnostic.severity]
-      end,
+      -- apparently this is not needed (https://github.com/nvim-lua/kickstart.nvim/pull/1550)
+      -- format = function(diagnostic)
+      --   local diagnostic_message = {
+      --     [vim.diagnostic.severity.ERROR] = diagnostic.message,
+      --     [vim.diagnostic.severity.WARN] = diagnostic.message,
+      --     [vim.diagnostic.severity.INFO] = diagnostic.message,
+      --     [vim.diagnostic.severity.HINT] = diagnostic.message,
+      --   }
+      --   return diagnostic_message[diagnostic.severity]
+      -- end,
     },
+    -- Display multiline diagnostics as virtual lines
+    -- virtual_lines = true,
   })
 end
 
