@@ -1,5 +1,4 @@
 -- Plugin options
-vim.g.abolish_no_mappings = true -- disable abolish keymaps
 vim.g.folds = "origami" -- ufo or origami
 vim.g.pairs = "autopairs" -- minipairs, autopairs or blinkpairs
 vim.g.picker = "snacks" -- fzf or snacks
