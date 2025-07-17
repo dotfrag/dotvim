@@ -1,4 +1,5 @@
 ---@class util
+---@field diagnostic util.diagnostic
 ---@field mason util.mason
 local M = {}
 
