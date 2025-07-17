@@ -29,6 +29,9 @@ return {
   {
     "tpope/vim-abolish",
     event = "LazyFile",
+    init = function()
+      vim.g.abolish_no_mappings = true -- disable keymaps
+    end,
   },
 
   {
