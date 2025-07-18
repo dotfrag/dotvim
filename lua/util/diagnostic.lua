@@ -1,7 +1,7 @@
 ---@class util.diagnostic
 local M = {}
 
-local mode = "dynamic"
+local mode = "static"
 
 local diagnostic_icons = {
   [vim.diagnostic.severity.ERROR] = "󰅚 ",
