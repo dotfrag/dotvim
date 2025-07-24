@@ -1,5 +1,6 @@
 return {
   {
+    -- also: https://github.com/chrisgrieser/nvim-various-textobjs and https://github.com/wellle/targets.vim
     "echasnovski/mini.ai",
     dependencies = "echasnovski/mini.extra",
     event = "LazyFile",

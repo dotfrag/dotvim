@@ -10,6 +10,7 @@ return {
     "windwp/nvim-autopairs",
     enabled = vim.g.pairs == "autopairs",
     event = "InsertEnter",
+    -- examples: https://github.com/mcauley-penney/nvim/blob/d1e11271246b55461a61c9f860e6843ff5a7a438/lua/plugins/autopairs.lua
     opts = {},
   },
 
