@@ -1,5 +1,5 @@
 ---@class util
----@field diagnostic util.diagnostic
+---@field lsp util.lsp
 ---@field mason util.mason
 local M = {}
 
