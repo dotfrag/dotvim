@@ -6,7 +6,7 @@ if vim.g.treesitter_new then
       build = ":TSUpdate",
       branch = "main",
       config = function()
-        local parsers = { "c", "bash", "diff", "html", "lua", "luadoc", "markdown", "markdown_inline", "query", "vim", "vimdoc" }
+        local parsers = { "c", "bash", "diff", "html", "javascript", "lua", "luadoc", "markdown", "markdown_inline", "python", "query", "vim", "vimdoc" }
         require("nvim-treesitter").install(parsers)
 
         local parser_to_ft = {
