@@ -1,6 +1,6 @@
 -- https://github.com/nvim-lua/kickstart.nvim/pull/1628
 
----@class util.diagnostic
+---@class util.lsp.diagnostic
 local M = {}
 
 local mode = "static"
