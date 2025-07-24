@@ -136,6 +136,7 @@ map("n", "<leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree" })
 map("n", "<leader>ra", "/[^\\x00-\\x7F]<cr>", { desc = "Find Non-ASCII Characters" })
 map("n", "<leader>rb", "<cmd>s/ /\\r/g<cr>|<cmd>noh<cr>", { desc = "Break Line" })
 map("n", "<leader>rc", "<cmd>%s/[[:cntrl:]]//<cr>``", { desc = "Remove Control Symbols" })
+-- also: https://github.com/mcauley-penney/tidy.nvim
 map("n", "<leader>re", "<cmd>g/^$/d<cr>|<cmd>noh<cr>", { desc = "Delete Empty Lines" })
 -- map("n", "<leader>rE", "<cmd>%!cat -s<cr>", { desc = "Delete Multiple Empty Lines" })
 map("n", "<leader>rE", [[:%s!\n\n\n\+!\r\r!g<cr>|<cmd>noh<cr>]], { desc = "Delete Multiple Empty Lines" })
