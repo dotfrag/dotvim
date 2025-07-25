@@ -83,7 +83,6 @@ return {
   {
     "echasnovski/mini.surround",
     keys = function(_, keys)
-      vim.print(keys)
       -- Populate the keys based on the user's options
       -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/coding/mini-surround.lua
       local opts = Util.opts("mini.surround")
