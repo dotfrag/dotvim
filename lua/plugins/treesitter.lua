@@ -9,20 +9,22 @@ if vim.g.treesitter_new then
         local parsers = { "c", "bash", "diff", "html", "javascript", "lua", "luadoc", "markdown", "markdown_inline", "python", "query", "vim", "vimdoc" }
         require("nvim-treesitter").install(parsers)
 
+        -- map filetypes to parser names
         local parser_to_ft = {
           bash = "sh",
         }
-
         for i, parser in ipairs(parsers) do
           if parser_to_ft[parser] then
             parsers[i] = parser_to_ft[parser]
           end
         end
 
+        -- start treesitter highlighting
         vim.api.nvim_create_autocmd("FileType", {
           pattern = parsers,
+          group = vim.api.nvim_create_augroup("dotvim_treesitter-start", { clear = true }),
           callback = function()
-            -- enbales syntax highlighting and other treesitter features
+            -- enables syntax highlighting and other treesitter features
             vim.treesitter.start()
 
             -- enbales treesitter based folds
@@ -31,6 +33,23 @@ if vim.g.treesitter_new then
 
             -- enables treesitter based indentation
             vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end,
+        })
+
+        -- attempt at auto_install workaround
+        local exclude_parsers = { "toml", "sql" }
+        vim.api.nvim_create_autocmd("FileType", {
+          group = vim.api.nvim_create_augroup("dotvim_treesitter-auto_install", { clear = true }),
+          callback = function()
+            local ft = vim.bo.filetype
+            for _, parser in ipairs(exclude_parsers) do
+              if ft == parser then
+                return
+              end
+            end
+            if not parsers[ft] then
+              require("nvim-treesitter").install(ft)
+            end
           end,
         })
       end,
