@@ -1,6 +1,8 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    event = "VeryLazy",
+    cmd = { "LspInfo", "LspInstall", "LspUninstall" },
     dependencies = {
       {
         "mason-org/mason.nvim",
