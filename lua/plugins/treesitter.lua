@@ -35,6 +35,12 @@ if vim.g.treesitter_new then
         })
       end,
     },
+    {
+      "nvim-treesitter/nvim-treesitter-context",
+      dependencies = "nvim-treesitter/nvim-treesitter",
+      event = "LazyFile",
+      opts = {},
+    },
   }
 else
   return {
