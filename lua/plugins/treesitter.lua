@@ -6,50 +6,40 @@ if vim.g.treesitter_new then
       build = ":TSUpdate",
       branch = "main",
       config = function()
-        local parsers = { "c", "bash", "diff", "html", "javascript", "lua", "luadoc", "markdown", "markdown_inline", "python", "query", "vim", "vimdoc" }
-        require("nvim-treesitter").install(parsers)
+        -- https://github.com/nvim-lua/kickstart.nvim/pull/1657#issuecomment-3119533001
 
-        -- map filetypes to parser names
-        local parser_to_ft = {
-          bash = "sh",
-        }
-        for i, parser in ipairs(parsers) do
-          if parser_to_ft[parser] then
-            parsers[i] = parser_to_ft[parser]
+        ---@param buf integer
+        ---@param language string
+        ---@return boolean
+        local function attach(buf, language)
+          -- check if parser exists before starting highlighter
+          if not vim.treesitter.language.add(language) then
+            return false
           end
+          vim.treesitter.start(buf, language)
+          return true
         end
 
-        -- start treesitter highlighting
+        local exclude_parsers = { "sql" }
         vim.api.nvim_create_autocmd("FileType", {
-          pattern = parsers,
-          group = vim.api.nvim_create_augroup("dotvim_treesitter-start", { clear = true }),
-          callback = function()
-            -- enables syntax highlighting and other treesitter features
-            vim.treesitter.start()
-
-            -- enbales treesitter based folds
-            -- for more info on folds see `:help folds`
-            -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-
-            -- enables treesitter based indentation
-            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-          end,
-        })
-
-        -- attempt at auto_install workaround
-        local exclude_parsers = { "toml", "sql" }
-        vim.api.nvim_create_autocmd("FileType", {
-          group = vim.api.nvim_create_augroup("dotvim_treesitter-auto_install", { clear = true }),
-          callback = function()
-            local ft = vim.bo.filetype
+          callback = function(args)
+            local buf, filetype = args.buf, args.match
+            local language = vim.treesitter.language.get_lang(filetype)
             for _, parser in ipairs(exclude_parsers) do
-              if ft == parser then
+              if language == parser then
                 return
               end
             end
-            if not parsers[ft] then
-              require("nvim-treesitter").install(ft)
+            if not language then
+              return
             end
+            if attach(buf, language) then
+              return
+            end
+            -- attempt to start highlighter after installing missing language
+            require("nvim-treesitter").install(language):await(function()
+              attach(buf, language)
+            end)
           end,
         })
       end,
