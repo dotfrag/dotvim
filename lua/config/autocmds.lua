@@ -47,7 +47,7 @@ autocmd("BufEnter", {
     "*/yazi/*.toml",
   },
   callback = function()
-    vim.b.autoformat = false
+    vim.b.disable_autoformat = true
   end,
 })
 
