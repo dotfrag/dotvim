@@ -20,7 +20,7 @@ if vim.g.treesitter_new then
           return true
         end
 
-        local exclude_parsers = { "sql" }
+        local exclude_parsers = { "csv", "sql" }
         vim.api.nvim_create_autocmd("FileType", {
           callback = function(args)
             local buf, filetype = args.buf, args.match
