@@ -13,11 +13,17 @@ vim.pack.add({
 vim.cmd("colorscheme catppuccin")
 vim.cmd(":hi statusline guibg=NONE")
 
-require("mini.pick").setup()
 require("nvim-treesitter.configs").setup({
-  ensure_installed = { "svelte", "typescript", "javascript" },
+  ensure_installed = { "bash", "svelte", "typescript", "javascript" },
   highlight = { enable = true },
 })
-require("oil").setup()
 
-require("plugins.lsp")
+local plugins = {
+  "oil",
+  "lsp",
+  "mini",
+}
+
+for _, plugin in pairs(plugins) do
+  require("plugins." .. plugin)
+end

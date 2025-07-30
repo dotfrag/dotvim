@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 vim.cmd("set completeopt+=noselect")
-vim.lsp.enable({ "lua_ls", "biome", "emmetls" })
+vim.lsp.enable({ "bashls", "lua_ls", "biome", "emmetls" })
 
 require("mason").setup()
 
