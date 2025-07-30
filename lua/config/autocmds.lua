@@ -17,6 +17,7 @@ autocmd("FileType", {
     "grug-far",
     "help",
     "lspinfo",
+    "nvim-pack",
     "qf",
   },
   callback = function(event)
