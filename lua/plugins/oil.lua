@@ -1,4 +1,5 @@
 require("oil").setup()
+
 if vim.fn.argc(-1) == 1 then
   ---@diagnostic disable-next-line: param-type-mismatch
   local stat = vim.uv.fs_stat(vim.fn.argv(0))
@@ -6,3 +7,5 @@ if vim.fn.argc(-1) == 1 then
     vim.cmd("Oil")
   end
 end
+
+vim.keymap.set("n", "<leader>e", ":Oil<CR>")
