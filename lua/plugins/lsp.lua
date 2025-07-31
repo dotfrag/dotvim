@@ -1,9 +1,3 @@
-local lsp_servers = {
-  "bashls",
-  "biome",
-  "emmet_ls",
-  "lua_ls",
-}
 local mason_packages = {
   "djlint", -- django
   "shellcheck", -- bash
@@ -13,17 +7,36 @@ local mason_packages = {
   vim.g.prettier_tool, -- html
 }
 
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(ev)
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    if client and client:supports_method("textDocument/completion") then
-      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
-    end
-  end,
-})
-vim.cmd("set completeopt+=noselect")
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--   callback = function(ev)
+--     local client = vim.lsp.get_client_by_id(ev.data.client_id)
+--     if client and client:supports_method("textDocument/completion") then
+--       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+--     end
+--   end,
+-- })
+-- vim.cmd("set completeopt+=noselect")
 
+Util.lsp.attach()
+Util.lsp.diagnostic.config()
+
+local capabilities = require("blink.cmp").get_lsp_capabilities()
+for server, config in pairs(Util.lsp.servers) do
+  config.capabilities = vim.tbl_deep_extend("force", {}, capabilities, config.capabilities or {})
+  vim.lsp.config(server, config)
+  -- vim.lsp.enable(server)
+end
+
+local lsp_servers = vim.tbl_keys(Util.lsp.servers)
 vim.lsp.enable(lsp_servers)
+
+require("lazydev").setup({
+  library = {
+    -- See the configuration section for more details
+    -- Load luvit types when the `vim.uv` word is found
+    { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+  },
+})
 
 require("mason").setup()
 require("mason-tool-installer").setup({
@@ -32,12 +45,4 @@ require("mason-tool-installer").setup({
   run_on_start = true,
   start_delay = 5000,
   debounce_hours = 5,
-})
-
-require("lazydev").setup({
-  library = {
-    -- See the configuration section for more details
-    -- Load luvit types when the `vim.uv` word is found
-    { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-  },
 })

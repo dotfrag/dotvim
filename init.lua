@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- Globals
--- _G.Util = require("util")
+_G.Util = require("util")
 
 -- Load config
 require("config.options")

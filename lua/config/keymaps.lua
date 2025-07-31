@@ -9,6 +9,10 @@ vim.keymap.set("n", "<leader>q", ":quit<CR>")
 -- Save buffer
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 
+-- Clear search with <esc>
+map("n", "<esc>", "<cmd>noh<cr>")
+-- map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>")
+
 vim.keymap.set({ "n", "v", "x" }, "<leader>y", '"+y<CR>')
 vim.keymap.set({ "n", "v", "x" }, "<leader>d", '"+d<CR>')
 
