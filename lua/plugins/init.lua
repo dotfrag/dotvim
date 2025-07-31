@@ -6,9 +6,11 @@ vim.pack.add({
   "https://github.com/folke/tokyonight.nvim",
   "https://github.com/kylechui/nvim-surround",
   "https://github.com/mason-org/mason.nvim",
+  "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
   "https://github.com/neovim/nvim-lspconfig",
   "https://github.com/nvim-treesitter/nvim-treesitter",
   "https://github.com/rebelot/kanagawa.nvim",
+  "https://github.com/stevearc/conform.nvim",
   "https://github.com/stevearc/oil.nvim",
 })
 
@@ -25,6 +27,7 @@ local plugins = {
   "lsp",
   "mini",
   "editor",
+  "conform",
 }
 
 for _, plugin in pairs(plugins) do
