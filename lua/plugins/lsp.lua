@@ -18,7 +18,7 @@ local mason_packages = {
 -- vim.cmd("set completeopt+=noselect")
 
 Util.lsp.attach()
-Util.lsp.diagnostic.config()
+Util.lsp.diagnostic.setup()
 
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 for server, config in pairs(Util.lsp.servers) do

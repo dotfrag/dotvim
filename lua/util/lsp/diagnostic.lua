@@ -136,7 +136,7 @@ local function setup_hover()
   })
 end
 
-function M.config()
+function M.setup()
   if mode == "static" then
     setup_static()
   elseif mode == "dynamic" then
