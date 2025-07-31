@@ -1,3 +1,5 @@
+vim.pack.add({ "https://github.com/echasnovski/mini.nvim" })
+
 require("mini.align").setup()
 require("mini.bufremove").setup()
 require("mini.move").setup()

@@ -1,3 +1,9 @@
+vim.pack.add({
+  "https://github.com/folke/lazydev.nvim",
+  "https://github.com/mason-org/mason.nvim",
+  "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
+})
+
 local mason_packages = {
   "djlint", -- django
   "shellcheck", -- bash
@@ -20,6 +26,7 @@ local mason_packages = {
 Util.lsp.attach()
 Util.lsp.diagnostic.setup()
 
+require("plugins.blink")
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 for server, config in pairs(Util.lsp.servers) do
   config.capabilities = vim.tbl_deep_extend("force", {}, capabilities, config.capabilities or {})
