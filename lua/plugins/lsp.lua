@@ -31,6 +31,8 @@ end
 local lsp_servers = vim.tbl_keys(Util.lsp.servers)
 vim.lsp.enable(lsp_servers)
 
+vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
+
 require("lazydev").setup({
   library = {
     -- See the configuration section for more details
