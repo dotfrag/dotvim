@@ -1,8 +1,3 @@
-require("mini.align").setup()
-require("mini.move").setup()
-require("mini.operators").setup()
-require("mini.pick").setup()
-
 local ai = require("mini.ai")
 local gen_ai_spec = require("mini.extra").gen_ai_spec
 require("mini.ai").setup({
@@ -28,8 +23,3 @@ require("mini.ai").setup({
     U = ai.gen_spec.function_call({ name_pattern = "[%w_]" }), -- without dot in function name
   },
 })
-
-local mm = require("mini.misc")
-mm.setup_auto_root()
-mm.setup_restore_cursor()
-mm.setup_termbg_sync()

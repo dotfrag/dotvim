@@ -3,6 +3,7 @@ vim.pack.add({
   "https://github.com/echasnovski/mini.nvim",
   "https://github.com/folke/lazydev.nvim",
   "https://github.com/folke/tokyonight.nvim",
+  "https://github.com/kylechui/nvim-surround",
   "https://github.com/mason-org/mason.nvim",
   "https://github.com/neovim/nvim-lspconfig",
   "https://github.com/nvim-treesitter/nvim-treesitter",
@@ -22,6 +23,7 @@ local plugins = {
   "oil",
   "lsp",
   "mini",
+  "surround",
 }
 
 for _, plugin in pairs(plugins) do

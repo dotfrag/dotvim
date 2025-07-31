@@ -1,10 +1,10 @@
 -- -- Plugin options
--- vim.g.folds = "origami" -- ufo or origami
--- vim.g.pairs = "autopairs" -- minipairs, autopairs or blinkpairs
--- vim.g.picker = "snacks" -- fzf or snacks
--- vim.g.prettier_tool = "prettierd" -- prettier or prettierd
--- vim.g.statusline = "lualine" -- lualine or heirline
--- vim.g.treesitter_new = true -- true (main) or false (master)
+vim.g.folds = "origami" -- ufo | origami
+vim.g.pairs = "autopairs" -- minipairs | autopairs | blinkpairs
+vim.g.picker = "mini" -- fzf | mini | snacks
+vim.g.prettier_tool = "prettierd" -- prettier | prettierd
+vim.g.statusline = "lualine" -- lualine | heirline
+vim.g.treesitter_new = true -- true (main) | false (master)
 
 local o = vim.o
 
