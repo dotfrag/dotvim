@@ -1,5 +1,3 @@
-vim.pack.add({ "https://github.com/stevearc/conform.nvim" })
-
 local sql_formatter_opts = {
   keywordCase = "upper",
   dataTypeCase = "upper",

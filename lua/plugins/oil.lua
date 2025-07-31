@@ -1,5 +1,3 @@
-vim.pack.add({ "https://github.com/stevearc/oil.nvim" })
-
 require("oil").setup()
 
 if vim.fn.argc(-1) == 1 then
