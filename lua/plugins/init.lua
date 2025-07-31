@@ -15,6 +15,7 @@ vim.pack.add({
   "https://github.com/saghen/blink.cmp",
   "https://github.com/stevearc/conform.nvim",
   "https://github.com/stevearc/oil.nvim",
+  "https://github.com/tpope/vim-fugitive",
   "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
   "https://github.com/windwp/nvim-autopairs",
 })

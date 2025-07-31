@@ -77,6 +77,8 @@ require("neogit").setup({
 })
 vim.keymap.set("n", "<leader>gn", "<cmd>Neogit<cr>")
 
+vim.keymap.set("n", "<leader>gp", ":G pull<cr>")
+
 -- {
 --   "NeogitOrg/neogit",
 --   cmd = "Neogit",
@@ -88,30 +90,6 @@ vim.keymap.set("n", "<leader>gn", "<cmd>Neogit<cr>")
 --     },
 --   },
 --   opts = {
---   },
--- },
-
--- {
---   "tpope/vim-fugitive",
---   cmd = {
---     "G",
---     "Gclog",
---     "GDelete",
---     "Gdiffsplit",
---     "Gedit",
---     "Ggrep",
---     "Git",
---     "GMove",
---     "Gread",
---     "GRemove",
---     "GRename",
---     "Gsplit",
---     "Gvdiffsplit",
---     "Gwrite",
---   },
---   keys = {
---     -- { "<leader>gB", "<cmd>Git blame<cr>", desc = "Blame" },
---     { "<leader>gp", "<cmd>Git pull<cr>", desc = "Pull" },
 --   },
 -- },
 
