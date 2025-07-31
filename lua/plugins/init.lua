@@ -7,6 +7,7 @@ vim.pack.add({
   "https://github.com/kylechui/nvim-surround",
   "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/mason-org/mason.nvim",
+  "https://github.com/mbbill/undotree",
   "https://github.com/NeogitOrg/neogit",
   "https://github.com/neovim/nvim-lspconfig",
   "https://github.com/NMAC427/guess-indent.nvim",
