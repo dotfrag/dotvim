@@ -1,5 +1,6 @@
 vim.pack.add({
   { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
+  "https://github.com/NMAC427/guess-indent.nvim",
   "https://github.com/echasnovski/mini.nvim",
   "https://github.com/folke/lazydev.nvim",
   "https://github.com/folke/tokyonight.nvim",
@@ -23,7 +24,7 @@ local plugins = {
   "oil",
   "lsp",
   "mini",
-  "surround",
+  "editor",
 }
 
 for _, plugin in pairs(plugins) do

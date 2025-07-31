@@ -1,4 +1,4 @@
--- -- Plugin options
+-- Plugin options
 vim.g.folds = "origami" -- ufo | origami
 vim.g.pairs = "autopairs" -- minipairs | autopairs | blinkpairs
 vim.g.picker = "mini" -- fzf | mini | snacks
