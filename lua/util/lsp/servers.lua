@@ -38,7 +38,7 @@ return {
       "typescript",
     },
   },
-  emmet_ls = {},
+  emmet_language_server = {},
 
   vtsls = {},
 

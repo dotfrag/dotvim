@@ -31,6 +31,8 @@ end
 local lsp_servers = vim.tbl_keys(Util.lsp.servers)
 vim.lsp.enable(lsp_servers)
 
+vim.keymap.set("n", "<leader>cl", vim.cmd.LspInfo)
+vim.keymap.set("n", "<leader>cm", vim.cmd.Mason)
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
 
 require("lazydev").setup({
@@ -42,6 +44,7 @@ require("lazydev").setup({
 })
 
 require("mason").setup()
+require("mason-lspconfig").setup({ automatic_enable = false })
 require("mason-tool-installer").setup({
   ensure_installed = vim.tbl_extend("force", lsp_servers, mason_packages),
   auto_update = true,
