@@ -1,7 +1,8 @@
 vim.pack.add({
-  "https://github.com/folke/lazydev.nvim",
   "https://github.com/mason-org/mason.nvim",
+  "https://github.com/neovim/nvim-lspconfig",
   "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
+  "https://github.com/folke/lazydev.nvim",
 })
 
 local mason_packages = {
