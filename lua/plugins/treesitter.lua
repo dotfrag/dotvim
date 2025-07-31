@@ -1,7 +1,10 @@
-vim.pack.add({ {
-  src = "https://github.com/nvim-treesitter/nvim-treesitter",
-  version = "main",
-} })
+vim.pack.add({
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+  "https://github.com/nvim-treesitter/nvim-treesitter-context",
+})
+
+require("nvim-treesitter").setup()
+require("treesitter-context").setup()
 
 -- https://github.com/nvim-lua/kickstart.nvim/pull/1657#issuecomment-3119533001
 ---@param buf integer
