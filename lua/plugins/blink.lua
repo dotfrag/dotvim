@@ -63,3 +63,14 @@ require("blink-cmp").setup({
   -- Shows a signature help window while you type arguments for a function
   -- signature = { enabled = true },
 })
+
+vim.api.nvim_create_user_command("BlinkBinary", function()
+  vim.notify("Building blink.cmp", vim.log.levels.INFO)
+  local plugin_path = vim.fn.stdpath("data") .. "/site/pack/core/opt/blink.cmp"
+  local obj = vim.system({ "cargo", "build", "--release" }, { cwd = plugin_path }):wait()
+  if obj.code == 0 then
+    vim.notify("Building blink.cmp done", vim.log.levels.INFO)
+  else
+    vim.notify("Building blink.cmp failed", vim.log.levels.ERROR)
+  end
+end, {})
