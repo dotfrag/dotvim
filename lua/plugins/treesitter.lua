@@ -5,6 +5,7 @@ if vim.g.treesitter_new then
       lazy = false,
       build = ":TSUpdate",
       branch = "main",
+      dependencies = "nvim-treesitter/nvim-treesitter-context",
       config = function()
         -- https://github.com/nvim-lua/kickstart.nvim/pull/1657#issuecomment-3119533001
 
@@ -17,6 +18,10 @@ if vim.g.treesitter_new then
             return false
           end
           vim.treesitter.start(buf, language)
+          -- enables treesitter based folds `:h vim.treesitter.foldexpr()`
+          -- vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+          -- enables treesitter based indentation `:h nvim-treesitter.indentexpr()`
+          -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
           return true
         end
 
@@ -43,12 +48,6 @@ if vim.g.treesitter_new then
           end,
         })
       end,
-    },
-    {
-      "nvim-treesitter/nvim-treesitter-context",
-      dependencies = "nvim-treesitter/nvim-treesitter",
-      event = "LazyFile",
-      opts = {},
     },
   }
 else
