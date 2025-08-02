@@ -52,6 +52,12 @@ return {
   },
 
   {
+    "chrisgrieser/nvim-recorder",
+    event = "LazyFile",
+    opts = {},
+  },
+
+  {
     "MagicDuck/grug-far.nvim",
     cmd = "GrugFar",
     keys = {
