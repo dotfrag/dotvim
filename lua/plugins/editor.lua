@@ -36,6 +36,22 @@ return {
   },
 
   {
+    "chrisgrieser/nvim-rip-substitute",
+    cmd = "RipSubstitute",
+    keys = {
+      {
+        "<localleader>s",
+        function()
+          require("rip-substitute").sub()
+        end,
+        mode = { "n", "x" },
+        desc = " rip substitute",
+      },
+    },
+    opts = {},
+  },
+
+  {
     "MagicDuck/grug-far.nvim",
     cmd = "GrugFar",
     keys = {
