@@ -54,6 +54,14 @@ return {
         mode = { "n", "v" },
         desc = "Search and Replace",
       },
+      {
+        "<localleader>r",
+        function()
+          require("grug-far").with_visual_selection({ prefills = { paths = vim.fn.expand("%") } })
+        end,
+        mode = { "n", "v" },
+        desc = "Search and Replace Current File",
+      },
     },
     opts = { headerMaxWidth = 80 },
   },
