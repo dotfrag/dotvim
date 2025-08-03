@@ -144,4 +144,10 @@ return {
     -- lazy = false, -- Required to make line highlighting work before debugprint is first used
     opts = { display_counter = false },
   },
+
+  {
+    "mcauley-penney/tidy.nvim",
+    event = "LazyFile",
+    opts = {},
+  },
 }
