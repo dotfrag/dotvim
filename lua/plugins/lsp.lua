@@ -46,7 +46,7 @@ require("lazydev").setup({
 require("mason").setup()
 require("mason-lspconfig").setup({ automatic_enable = false })
 require("mason-tool-installer").setup({
-  ensure_installed = vim.tbl_extend("force", lsp_servers, mason_packages),
+  ensure_installed = vim.list_extend(lsp_servers, mason_packages),
   auto_update = true,
   run_on_start = true,
   start_delay = 5000,
