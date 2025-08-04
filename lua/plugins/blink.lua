@@ -1,9 +1,11 @@
 local plugin_path = vim.fn.stdpath("data") .. "/site/pack/core/opt/blink.cmp"
-local binary_path = plugin_path .. "/target/release/libblink_cmp_fuzzy.so"
+local binary_dir = plugin_path .. "/target/release"
+local binary_path = binary_dir .. "/libblink_cmp_fuzzy.so"
 
 vim.api.nvim_create_user_command("BlinkBinary", function()
   vim.notify("blink.cmp: downloading pre-built binary", vim.log.levels.INFO)
   -- local obj = vim.system({ "cargo", "build", "--release" }, { cwd = plugin_path }):wait()
+  vim.fn.mkdir(binary_dir, "p")
   local obj = vim
     .system({
       "wget",
