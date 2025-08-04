@@ -36,6 +36,7 @@ o.relativenumber = true -- Relative line numbers
 o.scrolloff = 10 -- Lines of context
 o.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize" -- Changes the effect of the `:mksession` command
 o.shiftwidth = 2 -- Size of an indent
+o.shortmess = "I" -- Disable intro message
 o.showmode = false -- Don't show the mode, since it's already in the status line
 o.sidescrolloff = 10 -- Columns of context
 o.signcolumn = "yes" -- Keep signcolumn on by default to prevent text shifting
