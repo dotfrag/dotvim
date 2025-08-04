@@ -10,6 +10,7 @@ return function()
 
       map("<leader>cr", vim.lsp.buf.rename, "Rename")
       map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
+      map("<C-h>", vim.lsp.buf.signature_help, "Show Signature Help", "i")
 
       -- the following are defined in snacks.lua
       -- map("gd", vim.lsp.buf.definition, "Goto Definition")
