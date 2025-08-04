@@ -9,10 +9,13 @@ vim.pack.add({
   "https://github.com/mason-org/mason-lspconfig.nvim",
   "https://github.com/mason-org/mason.nvim",
   "https://github.com/mbbill/undotree",
+  "https://github.com/MunifTanjim/nui.nvim",
   "https://github.com/NeogitOrg/neogit",
   "https://github.com/neovim/nvim-lspconfig",
   "https://github.com/NMAC427/guess-indent.nvim",
   "https://github.com/nvim-lua/plenary.nvim",
+  "https://github.com/nvim-lua/plenary.nvim",
+  "https://github.com/nvim-neo-tree/neo-tree.nvim",
   "https://github.com/nvim-treesitter/nvim-treesitter-context",
   "https://github.com/saghen/blink.cmp",
   "https://github.com/stevearc/conform.nvim",
@@ -33,6 +36,7 @@ local plugins = {
   "editor",
   "conform",
   "git",
+  "neo-tree",
 }
 
 for _, plugin in pairs(plugins) do
