@@ -5,6 +5,7 @@ vim.pack.add({
   "https://github.com/folke/flash.nvim",
   "https://github.com/folke/lazydev.nvim",
   "https://github.com/folke/tokyonight.nvim",
+  "https://github.com/ibhagwan/fzf-lua",
   "https://github.com/kylechui/nvim-surround",
   "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/mason-org/mason-lspconfig.nvim",
@@ -38,6 +39,7 @@ local plugins = {
   "conform",
   "git",
   "neo-tree",
+  "fzf",
 }
 
 for _, plugin in pairs(plugins) do
