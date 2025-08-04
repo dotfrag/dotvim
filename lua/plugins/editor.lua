@@ -6,6 +6,12 @@ return {
   },
 
   {
+    "kylechui/nvim-surround",
+    event = "LazyFile",
+    opts = {},
+  },
+
+  {
     "folke/todo-comments.nvim",
     event = "LazyFile",
     dependencies = { "nvim-lua/plenary.nvim" },
