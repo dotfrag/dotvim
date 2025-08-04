@@ -54,7 +54,11 @@ return {
   {
     "chrisgrieser/nvim-recorder",
     event = "LazyFile",
-    opts = {},
+    opts = {
+      mapping = {
+        addBreakPoint = "||",
+      },
+    },
   },
 
   {
