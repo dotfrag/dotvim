@@ -69,10 +69,6 @@ map("n", "<c-/>", function() Snacks.terminal() end, { desc = "Terminal" })
 map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
 
--- Lazygit
-map("n", "<A-g>", function() Snacks.lazygit({ win = { width = 0, height = 0 } }) end, { desc = "Lazygit" })
-map("n", "<leader>gg", function() Snacks.lazygit({ win = { width = 0, height = 0 } }) end, { desc = "Lazygit" })
-
 -- Buffers
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })

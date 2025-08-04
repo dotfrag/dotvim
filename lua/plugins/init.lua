@@ -4,6 +4,7 @@ vim.pack.add({
   "https://github.com/echasnovski/mini.nvim",
   "https://github.com/folke/flash.nvim",
   "https://github.com/folke/lazydev.nvim",
+  "https://github.com/folke/snacks.nvim",
   "https://github.com/folke/tokyonight.nvim",
   "https://github.com/ibhagwan/fzf-lua",
   "https://github.com/kylechui/nvim-surround",
@@ -32,6 +33,7 @@ vim.cmd(":hi statusline guibg=NONE")
 
 local plugins = {
   "oil",
+  "snacks",
   "treesitter",
   "lsp",
   "mini",
