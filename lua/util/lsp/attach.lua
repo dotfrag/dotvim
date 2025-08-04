@@ -12,21 +12,27 @@ return function()
       map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
       map("<C-h>", vim.lsp.buf.signature_help, "Show Signature Help", "i")
 
-      -- the following are defined in snacks.lua
       -- map("gd", vim.lsp.buf.definition, "Goto Definition")
       -- map("gD", vim.lsp.buf.declaration, "Goto Declaration")
-      -- map("gr", vim.lsp.buf.references, "Goto References")
+      -- map("gR", vim.lsp.buf.references, "Goto References")
       -- map("gI", vim.lsp.buf.implementation, "Goto Implementation")
       -- map("gy", vim.lsp.buf.type_definition, "Goto T[y]pe Definition")
-      -- map("ss", require("telescope.builtin").lsp_document_symbols, "Open Document Symbols")
-      -- map("sS", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Open Workspace Symbols")
+      -- map("ss", require("telescope.builtin").lsp_document_symbols, "LSP Symbols")
+      -- map("sS", require("telescope.builtin").lsp_dynamic_workspace_symbols, "LSP Workspace Symbols")
 
-      -- map("gd", "<cmd>FzfLua lsp_definitions jump_to_single_result=true ignore_current_line=true<cr>", "Goto Definition")
-      -- map("gr", "<cmd>FzfLua lsp_references jump_to_single_result=true ignore_current_line=true<cr>", "Goto References")
-      -- map("gI", "<cmd>FzfLua lsp_implementations jump_to_single_result=true ignore_current_line=true<cr>", "Goto Implementation")
-      -- map("gy", "<cmd>FzfLua lsp_typedefs jump_to_single_result=true ignore_current_line=true<cr>", "Goto T[y]pe Definition")
-      -- map("<leader>ss", "<cmd>FzfLua lsp_document_symbols<cr>", "Symbols")
-      -- map("<leader>sS", "<cmd>FzfLua lsp_workspace_symbols<cr>", "Symbols (Workspace)")
+      if vim.g.picker == "fzf" then
+        map("gd", "<cmd>FzfLua lsp_definitions jump1=true ignore_current_line=true<cr>", "Goto Definition")
+        map("gD", "<cmd>FzfLua lsp_declarations jump1=true ignore_current_line=true<cr>", "Goto Definition")
+        map("gR", "<cmd>FzfLua lsp_references jump1=true ignore_current_line=true<cr>", "Goto References")
+        map("gI", "<cmd>FzfLua lsp_implementations jump1=true ignore_current_line=true<cr>", "Goto Implementation")
+        map("gy", "<cmd>FzfLua lsp_typedefs jump1=true ignore_current_line=true<cr>", "Goto T[y]pe Definition")
+        vim.keymap.set("n", "<leader>ss", function()
+          require("fzf-lua").lsp_document_symbols({ regex_filter = Util.lsp.symbols.filter })
+        end, { desc = "LSP Symbols" })
+        vim.keymap.set("n", "<leader>sS", function()
+          require("fzf-lua").lsp_live_workspace_symbols({ regex_filter = Util.lsp.symbols.filter })
+        end, { desc = "LSP Workspace Symbols" })
+      end
 
       local client = vim.lsp.get_client_by_id(event.data.client_id)
 

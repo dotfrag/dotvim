@@ -1,6 +1,6 @@
 ---@type snacks.Config
 require("snacks").setup({
-  -- dashboard = { enabled = true },
+  words = { enabled = true },
 })
 
 -- Lazygit

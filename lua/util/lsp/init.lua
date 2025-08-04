@@ -2,6 +2,7 @@
 ---@field attach util.lsp.attach
 ---@field diagnostic util.lsp.diagnostic
 ---@field servers util.lsp.servers
+---@field symbols util.lsp.symbols
 local M = {}
 
 setmetatable(M, {

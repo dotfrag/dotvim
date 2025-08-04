@@ -5,75 +5,6 @@ if vim.g.picker ~= "fzf" then
   return
 end
 
----@type table<string, string[]|boolean>?
-local kind_filter = {
-  default = {
-    "Class",
-    "Constructor",
-    "Enum",
-    "Field",
-    "Function",
-    "Interface",
-    "Method",
-    "Module",
-    "Namespace",
-    "Package",
-    "Property",
-    "Struct",
-    "Trait",
-  },
-  markdown = false,
-  help = false,
-  -- you can specify a different filter for each filetype
-  lua = {
-    "Class",
-    "Constructor",
-    "Enum",
-    "Field",
-    "Function",
-    "Interface",
-    "Method",
-    "Module",
-    "Namespace",
-    -- "Package", -- remove package since luals uses it for control flow structures
-    "Property",
-    "Struct",
-    "Trait",
-  },
-}
-
----@param buf? number
----@return string[]?
-local function get_kind_filter(buf)
-  buf = (buf == nil or buf == 0) and vim.api.nvim_get_current_buf() or buf
-  local ft = vim.bo[buf].filetype
-  if not kind_filter then
-    return
-  end
-  if kind_filter == false then
-    return
-  end
-  if kind_filter[ft] == false then
-    return
-  end
-  if type(kind_filter[ft]) == "table" then
-    ---@diagnostic disable-next-line: return-type-mismatch
-    return kind_filter[ft]
-  end
-  ---@diagnostic disable-next-line: return-type-mismatch
-  return type(kind_filter) == "table" and type(kind_filter.default) == "table" and kind_filter.default or nil
-end
-
-local function symbols_filter(entry, ctx)
-  if ctx.symbols_filter == nil then
-    ctx.symbols_filter = get_kind_filter(ctx.bufnr) or false
-  end
-  if ctx.symbols_filter == false then
-    return true
-  end
-  return vim.tbl_contains(ctx.symbols_filter, entry.kind)
-end
-
 require("fzf-lua").setup()
 require("fzf-lua").register_ui_select()
 
@@ -121,11 +52,3 @@ vim.keymap.set("n", "<leader>sq", "<cmd>FzfLua quickfix<cr>", { desc = "Quickfix
 vim.keymap.set("n", "<leader>sw", "<cmd>FzfLua grep_cword<cr>", { desc = "Word" })
 vim.keymap.set("v", "<leader>sw", "<cmd>FzfLua grep_visual<cr>", { desc = "Selection" })
 vim.keymap.set("n", "<leader>uC", "<cmd>FzfLua colorschemes<cr>", { desc = "Colorscheme with Preview" })
-
--- Symbols
-vim.keymap.set("n", "<leader>ss", function()
-  require("fzf-lua").lsp_document_symbols({ regex_filter = symbols_filter })
-end, { desc = "LSP Symbols" })
-vim.keymap.set("n", "<leader>ss", function()
-  require("fzf-lua").lsp_live_workspace_symbols({ regex_filter = symbols_filter })
-end, { desc = "LSP Workspace Symbols" })
