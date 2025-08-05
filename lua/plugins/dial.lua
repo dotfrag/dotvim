@@ -30,6 +30,12 @@ return {
       cyclic = true,
     })
 
+    local start_end = augend.constant.new({
+      elements = { "start", "end" },
+      word = false,
+      cyclic = true,
+    })
+
     local ordinal_numbers = augend.constant.new({
       -- elements through which we cycle. When we increment, we go down
       -- On decrement we go up
@@ -121,6 +127,7 @@ return {
           capitalized_boolean,
           augend.constant.alias.bool, -- boolean value (true <-> false)
           logical_alias,
+          start_end,
         },
         vue = {
           augend.constant.new({ elements = { "let", "const" } }),
