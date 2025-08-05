@@ -4,6 +4,9 @@ require("mini.operators").setup()
 require("plugins.mini.ai")
 require("plugins.mini.pick")
 
+require("mini.icons").setup()
+MiniIcons.mock_nvim_web_devicons()
+
 local mm = require("mini.misc")
 mm.setup_auto_root()
 mm.setup_restore_cursor()
