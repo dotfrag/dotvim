@@ -59,6 +59,13 @@ map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
 map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window width" })
 map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window width" })
 
+-- Terminal
+map("t", "<c-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
+
+-- Folds
+map("n", "<Tab>", "za", { desc = "Toggle Fold" })
+
 -- stylua: ignore start
 
 -- Buffers
