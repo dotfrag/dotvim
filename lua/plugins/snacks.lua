@@ -1,5 +1,9 @@
 ---@type snacks.Config
 require("snacks").setup({
+  indent = { enabled = true },
+  input = { enabled = true },
+  notifier = { enabled = true },
+  notify = { enabled = true },
   words = { enabled = true },
 })
 

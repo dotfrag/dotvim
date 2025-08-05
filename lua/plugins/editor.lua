@@ -7,7 +7,7 @@ end
 
 -- or https://github.com/ggandor/leap.nvim
 ---@type Flash.Config
-require("flash").setup()
+require("flash").setup({ modes = { char = { enabled = false } } })
 -- stylua: ignore start
 vim.keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end, { desc = "Flash" })
 vim.keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() end, { desc = "Flash Treesitter" })

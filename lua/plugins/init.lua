@@ -1,6 +1,7 @@
 vim.pack.add({
   { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+  "https://github.com/akinsho/bufferline.nvim",
   "https://github.com/chrisgrieser/nvim-origami",
   "https://github.com/chrisgrieser/nvim-recorder",
   "https://github.com/chrisgrieser/nvim-rip-substitute",
@@ -45,6 +46,7 @@ local plugins = {
   "git",
   "neo-tree",
   "fzf",
+  "bufferline",
 }
 
 for _, plugin in pairs(plugins) do
