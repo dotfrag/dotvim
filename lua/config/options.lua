@@ -1,7 +1,8 @@
 -- Plugin options
+vim.g.explorer = "snacks" -- neo-tree | snacks
 vim.g.folds = "origami" -- ufo | origami
 vim.g.pairs = "autopairs" -- minipairs | autopairs | blinkpairs
-vim.g.picker = "fzf" -- fzf | mini | snacks
+vim.g.picker = "snacks" -- fzf | mini | snacks
 vim.g.prettier_tool = "prettierd" -- prettier | prettierd
 vim.g.statusline = "lualine" -- lualine | heirline
 vim.g.treesitter_new = true -- true (main) | false (master)

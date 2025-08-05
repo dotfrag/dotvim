@@ -1,3 +1,7 @@
+if vim.g.explorer ~= "neo-tree" then
+  return
+end
+
 require("neo-tree").setup({
   commands = {
     -- https://github.com/AstroNvim/AstroNvim/blob/main/lua/astronvim/plugins/neo-tree.lua
@@ -40,7 +44,7 @@ require("neo-tree").setup({
     end,
   },
   filesystem = {
-		follow_current_file = { enabled = true },
+    follow_current_file = { enabled = true },
     use_libuv_file_watcher = true,
   },
   window = {

@@ -61,19 +61,11 @@ map("n", "<C-Right>", ":vertical resize +2<cr>", { desc = "Increase Window width
 
 -- stylua: ignore start
 
--- Terminal
-map("n", "<c-/>", function() Snacks.terminal() end, { desc = "Terminal" })
-map("t", "<C-/>", ":close<cr>", { desc = "Hide Terminal" })
-map("t", "<c-_>", ":close<cr>", { desc = "which_key_ignore" })
-
 -- Buffers
 -- map("n", "<S-h>", ":bprevious<cr>", { desc = "Prev Buffer" })
 -- map("n", "<S-l>", ":bnext<cr>", { desc = "Next Buffer" })
 map("n", "<leader>bb", ":e #<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader>`", ":e #<cr>", { desc = "Switch to Other Buffer" })
--- map("n", "<leader>d", function() Snacks.bufdelete() end, { desc = "Delete Buffer" })
--- map("n", "<leader>ba", function() Snacks.bufdelete.all() end, { desc = "Delete All Buffers" })
--- map("n", "<leader>bo", function() Snacks.bufdelete.other() end, { desc = "Delete Other Buffers" })
 map("n", "<leader>D", ":bd<cr>", { desc = "Delete Buffer and Window" })
 
 -- stylua: ignore end

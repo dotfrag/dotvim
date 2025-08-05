@@ -8,6 +8,7 @@ vim.pack.add({
   "https://github.com/echasnovski/mini.nvim",
   "https://github.com/folke/flash.nvim",
   "https://github.com/folke/lazydev.nvim",
+  "https://github.com/folke/persistence.nvim",
   "https://github.com/folke/snacks.nvim",
   "https://github.com/folke/tokyonight.nvim",
   "https://github.com/ibhagwan/fzf-lua",
