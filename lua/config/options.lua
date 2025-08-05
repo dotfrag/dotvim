@@ -56,13 +56,10 @@ o.wrap = false -- Disable line wrap
 vim.opt.diffopt:append("iwhite") -- Ignore whitespace in diff mode
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" } -- Strings to use in list mode
 
--- Fold settings for ufo plugin.
--- They need to be defined here instead of inside the plugin config because it causes issues with neotree.
-if vim.g.folds == "ufo" then
-  o.foldcolumn = "0" -- 0 or 1
-  o.foldlevel = 99
-  o.foldlevelstart = 99
-  o.foldenable = true
+-- Fold settings
+if vim.g.folds == "origami" then
+  vim.o.foldlevel = 99
+  vim.o.foldlevelstart = 99
 end
 
 -- Filetype mappings

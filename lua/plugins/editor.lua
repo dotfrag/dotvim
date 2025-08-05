@@ -17,3 +17,7 @@ vim.keymap.set("c", "<c-s>", function() require("flash").toggle() end, { desc = 
 -- stylua: ignore end
 
 vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle)
+
+if vim.g.folds == "origami" then
+  require("origami").setup()
+end
