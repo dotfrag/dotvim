@@ -64,11 +64,11 @@ require("gitsigns").setup({
 })
 
 require("neogit").setup({
-  kind = "floating",
-  floating = {
-    width = 0.9,
-    height = 0.8,
-  },
+  -- kind = "floating",
+  -- floating = {
+  --   width = 0.9,
+  --   height = 0.8,
+  -- },
   signs = {
     hunk = { "", "" },
     item = { "", "" },
