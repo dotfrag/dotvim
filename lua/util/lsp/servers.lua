@@ -8,6 +8,12 @@ return {
         },
         -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
         -- diagnostics = { disable = { "missing-fields" } },
+        -- Support for global vim object
+        -- workspace = {
+        --   library = {
+        --     vim.api.nvim_get_runtime_file("", true),
+        --   },
+        -- },
       },
     },
   },
