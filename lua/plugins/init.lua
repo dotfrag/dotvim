@@ -16,6 +16,7 @@ vim.pack.add({
   "https://github.com/mason-org/mason-lspconfig.nvim",
   "https://github.com/mason-org/mason.nvim",
   "https://github.com/mbbill/undotree",
+  "https://github.com/monaqa/dial.nvim",
   "https://github.com/MunifTanjim/nui.nvim",
   "https://github.com/NeogitOrg/neogit",
   "https://github.com/neovim/nvim-lspconfig",
@@ -47,6 +48,7 @@ local plugins = {
   "neo-tree",
   "fzf",
   "bufferline",
+  "dial",
 }
 
 for _, plugin in pairs(plugins) do
