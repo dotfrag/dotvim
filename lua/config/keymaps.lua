@@ -1,18 +1,18 @@
 local map = vim.keymap.set
 
 -- Quit
-map("n", "<leader>q", "<cmd>qa<cr>", { desc = "Quit All" })
+map("n", "<leader>q", ":qa<cr>", { desc = "Quit All" })
 
 -- Save buffer
-map("n", "<leader>w", ":write<CR>")
-map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+map("n", "<leader>w", ":write<cr>")
+map({ "i", "x", "n", "s" }, "<C-s>", ":w<cr><esc>", { desc = "Save File" })
 
 -- Save buffer without formatting
-map("n", "<leader>W", "<cmd>noautocmd w<cr>", { desc = "Save Without Formatting" })
+map("n", "<leader>W", ":noautocmd w<cr>", { desc = "Save Without Formatting" })
 
 -- Clear search with <esc>
-map("n", "<esc>", "<cmd>noh<cr>")
--- map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>")
+map("n", "<esc>", ":noh<cr>")
+-- map({ "i", "n" }, "<esc>", ":noh<cr><esc>")
 
 -- -- Clipboard
 -- vim.keymap.set({ "n", "v", "x" }, "<leader>y", '"+y<cr>')
@@ -33,19 +33,16 @@ map("i", "AA", "<C-o>A")
 
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
-map("n", "<leader>ur", "<cmd>nohlsearch|diffupdate|normal! <C-l><cr>", { desc = "Redraw / Clear hlsearch / Diff Update" })
-
--- Lazy
-map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
+map("n", "<leader>ur", ":nohlsearch|diffupdate|normal! <C-l><cr>", { desc = "Redraw / Clear hlsearch / Diff Update" })
 
 -- Tabs
-map("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
-map("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
-map("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
-map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
-map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
-map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
-map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
+map("n", "<leader><tab>l", ":tablast<cr>", { desc = "Last Tab" })
+map("n", "<leader><tab>o", ":tabonly<cr>", { desc = "Close Other Tabs" })
+map("n", "<leader><tab>f", ":tabfirst<cr>", { desc = "First Tab" })
+map("n", "<leader><tab><tab>", ":tabnew<cr>", { desc = "New Tab" })
+map("n", "<leader><tab>]", ":tabnext<cr>", { desc = "Next Tab" })
+map("n", "<leader><tab>[", ":tabprevious<cr>", { desc = "Previous Tab" })
+map("n", "<leader><tab>d", ":tabclose<cr>", { desc = "Close Tab" })
 
 -- Windows
 map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
@@ -57,33 +54,33 @@ map("n", "<leader>|", "<C-w>v", { desc = "Split Window Right", remap = true })
 map("n", "<leader>wd", "<C-w>c", { desc = "Delete Window", remap = true })
 
 -- Resize window using <ctrl> arrow keys
-map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
-map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
-map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window width" })
-map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window width" })
+map("n", "<C-Up>", ":resize +2<cr>", { desc = "Increase Window Height" })
+map("n", "<C-Down>", ":resize -2<cr>", { desc = "Decrease Window Height" })
+map("n", "<C-Left>", ":vertical resize -2<cr>", { desc = "Decrease Window width" })
+map("n", "<C-Right>", ":vertical resize +2<cr>", { desc = "Increase Window width" })
 
 -- stylua: ignore start
 
 -- Terminal
 map("n", "<c-/>", function() Snacks.terminal() end, { desc = "Terminal" })
-map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
-map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
+map("t", "<C-/>", ":close<cr>", { desc = "Hide Terminal" })
+map("t", "<c-_>", ":close<cr>", { desc = "which_key_ignore" })
 
 -- Buffers
-map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+-- map("n", "<S-h>", ":bprevious<cr>", { desc = "Prev Buffer" })
+-- map("n", "<S-l>", ":bnext<cr>", { desc = "Next Buffer" })
+map("n", "<leader>bb", ":e #<cr>", { desc = "Switch to Other Buffer" })
+map("n", "<leader>`", ":e #<cr>", { desc = "Switch to Other Buffer" })
 -- map("n", "<leader>d", function() Snacks.bufdelete() end, { desc = "Delete Buffer" })
 -- map("n", "<leader>ba", function() Snacks.bufdelete.all() end, { desc = "Delete All Buffers" })
 -- map("n", "<leader>bo", function() Snacks.bufdelete.other() end, { desc = "Delete Other Buffers" })
-map("n", "<leader>D", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
+map("n", "<leader>D", ":bd<cr>", { desc = "Delete Buffer and Window" })
 
 -- stylua: ignore end
 
 -- Quickfix
-map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
-map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
+map("n", "<leader>xl", ":lopen<cr>", { desc = "Location List" })
+map("n", "<leader>xq", ":copen<cr>", { desc = "Quickfix List" })
 -- map("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
 -- map("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
 
@@ -113,7 +110,7 @@ map("v", ">", ">gv")
 
 -- Inspect
 map("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
-map("n", "<leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree" })
+map("n", "<leader>uI", ":InspectTree<cr>", { desc = "Inspect Tree" })
 
 -- Regex
 map("n", "<leader>ra", "/[^\\x00-\\x7F]<cr>", { desc = "Find Non-ASCII Characters" })
