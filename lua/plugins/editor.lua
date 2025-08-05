@@ -21,3 +21,16 @@ vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle)
 if vim.g.folds == "origami" then
   require("origami").setup()
 end
+
+---@diagnostic disable-next-line: missing-fields
+require("recorder").setup({
+  ---@diagnostic disable-next-line: missing-fields
+  mapping = {
+    addBreakPoint = "||",
+  },
+})
+
+require("rip-substitute").setup()
+vim.keymap.set({ "n", "x" }, "<localleader>s", function()
+  require("rip-substitute").sub()
+end)
