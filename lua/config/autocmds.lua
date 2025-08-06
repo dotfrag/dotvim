@@ -76,9 +76,20 @@ autocmd("FileType", {
 
 -- Auto sort file on save
 autocmd("BufWritePre", {
+  group = augroup("sort-on-save"),
   pattern = { "mimeapps.list" },
   command = "%sort",
 })
+
+-- -- Navigate quickfix list without enter key
+-- autocmd("FileType", {
+--   group = augroup("quickfix-navigation"),
+--   pattern = { "qf" },
+--   callback = function(event)
+--     vim.keymap.set("n", "j", "j<cr><c-w>p", { noremap = true, buffer = event.buf })
+--     vim.keymap.set("n", "k", "k<cr><c-w>p", { noremap = true, buffer = event.buf })
+--   end,
+-- })
 
 -- -- Go to last loc when opening a buffer (currently using mini.misc instead)
 -- autocmd("BufReadPost", {
