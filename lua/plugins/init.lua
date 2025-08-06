@@ -37,21 +37,35 @@ vim.pack.add({
 vim.cmd("colorscheme catppuccin")
 vim.cmd(":hi statusline guibg=NONE")
 
+require("mini.misc").setup()
+MiniMisc.setup_restore_cursor()
+
 local plugins = {
   "oil",
   "snacks",
   "treesitter",
   "lsp",
-  "mini",
-  "editor",
   "conform",
-  "git",
-  "neo-tree",
-  "fzf",
   "bufferline",
+}
+
+local plugins_lazy = {
+  "editor",
+  "mini",
+  "git",
   "dial",
+  "fzf",
+  "neo-tree",
 }
 
 for _, plugin in pairs(plugins) do
   require("plugins." .. plugin)
 end
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    for _, plugin in pairs(plugins_lazy) do
+      require("plugins." .. plugin)
+    end
+  end,
+})

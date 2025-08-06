@@ -77,7 +77,7 @@ require("neogit").setup({
 })
 vim.keymap.set("n", "<leader>gn", "<cmd>Neogit<cr>")
 
-vim.keymap.set("n", "<leader>gp", ":G pull<cr>")
+vim.keymap.set("n", "<leader>gp", "<cmd>G pull<cr>")
 
 -- {
 --   "NeogitOrg/neogit",
