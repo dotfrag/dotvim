@@ -18,7 +18,7 @@ local mason_packages = {
 -- vim.cmd("set completeopt+=noselect")
 
 Util.lsp.attach()
-Util.lsp.diagnostic.setup()
+Util.lsp.diagnostic.setup("tiny")
 
 require("plugins.blink")
 local capabilities = require("blink.cmp").get_lsp_capabilities()

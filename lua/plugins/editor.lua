@@ -34,3 +34,5 @@ require("rip-substitute").setup()
 vim.keymap.set({ "n", "x" }, "<localleader>s", function()
   require("rip-substitute").sub()
 end)
+
+require("neogen").setup()

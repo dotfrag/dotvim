@@ -3,8 +3,6 @@
 ---@class util.lsp.diagnostic
 local M = {}
 
-local mode = "static"
-
 local diagnostic_icons = {
   [vim.diagnostic.severity.ERROR] = "󰅚 ",
   [vim.diagnostic.severity.WARN] = "󰀪 ",
@@ -136,13 +134,21 @@ local function setup_hover()
   })
 end
 
-function M.setup()
+local function setup_tiny()
+  require("tiny-inline-diagnostic").setup()
+  vim.diagnostic.config({ virtual_text = false })
+end
+
+---@param mode 'static'|'dynamic'|'hover'|'tiny'
+function M.setup(mode)
   if mode == "static" then
     setup_static()
   elseif mode == "dynamic" then
     setup_dynamic()
   elseif mode == "hover" then
     setup_hover()
+  elseif mode == "tiny" then
+    setup_tiny()
   end
 
   local diagnostic_goto = function(next, severity)
