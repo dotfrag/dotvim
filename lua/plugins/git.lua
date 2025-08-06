@@ -39,6 +39,8 @@ require("gitsigns").setup({
     end, "Prev Hunk")
 
     -- stylua: ignore start
+    map("n", "]C", function() gs.nav_hunk("last") end, "Last Hunk")
+    map("n", "[C", function() gs.nav_hunk("first") end, "First Hunk")
     map("n", "]h", function() gs.nav_hunk("next") end, "Next Hunk")
     map("n", "[h", function() gs.nav_hunk("prev") end, "Prev Hunk")
     map("n", "]H", function() gs.nav_hunk("last") end, "Last Hunk")
