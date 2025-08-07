@@ -35,4 +35,20 @@ vim.keymap.set({ "n", "x" }, "<localleader>s", function()
   require("rip-substitute").sub()
 end)
 
-require("neogen").setup()
+require("neogen").setup({})
+
+require("grug-far").setup()
+
+vim.keymap.set({ "n", "v" }, "<leader>sr", function()
+  local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
+  require("grug-far").open({
+    transient = true,
+    prefills = {
+      filesFilter = ext and ext ~= "" and "*." .. ext or nil,
+    },
+  })
+end, { desc = "Search and Replace" })
+
+vim.keymap.set({ "n", "v" }, "<localleader>r", function()
+  require("grug-far").with_visual_selection({ prefills = { paths = vim.fn.expand("%") } })
+end, { desc = "Search and Replace Current File" })

@@ -17,6 +17,7 @@ vim.pack.add({
   "https://github.com/kevinhwang91/nvim-bqf",
   "https://github.com/kylechui/nvim-surround",
   "https://github.com/lewis6991/gitsigns.nvim",
+  "https://github.com/MagicDuck/grug-far.nvim",
   "https://github.com/mason-org/mason-lspconfig.nvim",
   "https://github.com/mason-org/mason.nvim",
   "https://github.com/mbbill/undotree",
