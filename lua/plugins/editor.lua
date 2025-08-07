@@ -99,7 +99,7 @@ return {
         desc = "Search and Replace Current File",
       },
     },
-    opts = { headerMaxWidth = 80 },
+    opts = {},
   },
 
   {
