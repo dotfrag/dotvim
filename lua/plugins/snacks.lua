@@ -58,6 +58,7 @@ require("snacks").setup({
         { icon = " ", key = "d", desc = "Dotfiles", action = ":lua Snacks.dashboard.pick('files', {dirs = {'~/repos/dotfiles', '~/repos/dotfiles-private'}})" },
         { icon = "󰁯 ", key = "s", desc = "Restore Session", action = function() require("persistence").load() end },
         { icon = "󰦛 ", key = "S", desc = "Restore Last Session", action = function() require("persistence").load({ last = true }) end },
+        { icon = "󰏗 ", key = "l", desc = "Packages", action = ":lua vim.pack.update()" },
         { icon = " ", key = "q", desc = "Quit", action = ":qa" },
       },
     },
