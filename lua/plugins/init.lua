@@ -30,6 +30,7 @@ vim.pack.add({
   "https://github.com/nvim-treesitter/nvim-treesitter-context",
   "https://github.com/rachartier/tiny-inline-diagnostic.nvim",
   "https://github.com/saghen/blink.cmp",
+  "https://github.com/sindrets/diffview.nvim",
   "https://github.com/stevearc/conform.nvim",
   "https://github.com/stevearc/oil.nvim",
   "https://github.com/tpope/vim-fugitive",
