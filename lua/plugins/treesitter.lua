@@ -12,9 +12,9 @@ local function attach(buf, language)
   end
   vim.treesitter.start(buf, language)
   -- enables treesitter based folds `:h vim.treesitter.foldexpr()`
-  vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+  -- vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
   -- enables treesitter based indentation `:h nvim-treesitter.indentexpr()`
-  vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
   return true
 end
 
