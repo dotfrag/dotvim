@@ -19,6 +19,7 @@ vim.schedule(function()
   -- opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 end)
 
+-- o.laststatus = 3 -- Global statusline
 o.autowrite = true -- Enable auto write
 o.breakindent = true -- Visually indent wrapped lines
 o.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
@@ -29,7 +30,6 @@ o.grepformat = "%f:%l:%c:%m" -- Set grep format
 o.grepprg = "rg --vimgrep" -- Use ripgrep as grepprg
 o.ignorecase = true -- Case-insensitive searching unless \C
 o.inccommand = "split" -- Preview substitutions live, as you type!
-o.laststatus = 3 -- Global statusline
 o.list = true -- Display whitespace characters
 o.mouse = "a" -- Enable mouse mode
 o.number = true -- Show line number

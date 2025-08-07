@@ -38,8 +38,8 @@ vim.pack.add({
   "https://github.com/windwp/nvim-autopairs",
 })
 
-vim.cmd("colorscheme catppuccin")
-vim.cmd(":hi statusline guibg=NONE")
+vim.cmd("colorscheme tokyonight")
+-- vim.cmd(":hi statusline guibg=NONE")
 
 require("mini.misc").setup()
 MiniMisc.setup_restore_cursor()
