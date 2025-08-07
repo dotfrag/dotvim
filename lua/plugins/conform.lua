@@ -52,6 +52,7 @@ require("conform").setup({
     jsonc = { "biome" },
 
     -- other
+    -- go = { "goimports", "gofumpt" },
     htmldjango = { "djlint" },
     python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
     sql = { "sql_formatter" },
