@@ -63,13 +63,13 @@ local plugins_lazy = {
   "neo-tree",
 }
 
-for _, plugin in pairs(plugins) do
+for _, plugin in ipairs(plugins) do
   require("plugins." .. plugin)
 end
 
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
-    for _, plugin in pairs(plugins_lazy) do
+    for _, plugin in ipairs(plugins_lazy) do
       require("plugins." .. plugin)
     end
   end,

@@ -21,14 +21,14 @@ end)
 -- end)
 --
 -- vim.keymap.set("n", "<leader>ba", function()
---   for _ in pairs(vim.api.nvim_list_bufs()) do
+--   for _ in ipairs(vim.api.nvim_list_bufs()) do
 --     require("mini.bufremove").delete() -- maybe need i?
 --   end
 -- end)
 --
 -- vim.keymap.set("n", "<leader>bo", function()
 --   local cur_buf = vim.api.nvim_get_current_buf()
---   for i in pairs(vim.api.nvim_list_bufs()) do
+--   for i in ipairs(vim.api.nvim_list_bufs()) do
 --     if i ~= cur_buf then
 --       require("mini.bufremove").delete(i)
 --     end

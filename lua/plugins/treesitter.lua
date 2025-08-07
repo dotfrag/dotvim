@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function(args)
     local buf, filetype = args.buf, args.match
     local language = vim.treesitter.language.get_lang(filetype)
-    for _, parser in pairs(exclude_parsers) do
+    for _, parser in ipairs(exclude_parsers) do
       if language == parser then
         return
       end
