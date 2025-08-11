@@ -1,3 +1,5 @@
+-- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/init.lua
+
 ---@class util.lsp.symbols
 local M = {}
 

@@ -1,5 +1,4 @@
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/editor/fzf.lua
--- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/init.lua
 
 if vim.g.picker ~= "fzf" then
   return
