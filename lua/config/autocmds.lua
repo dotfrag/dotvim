@@ -81,6 +81,14 @@ autocmd("BufWritePre", {
   command = "%sort",
 })
 
+-- Do not automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode
+autocmd("FileType", {
+  group = augroup("disable-formatopt-o"),
+  callback = function()
+    vim.opt.formatoptions:remove("o")
+  end,
+})
+
 -- -- Navigate quickfix list without enter key
 -- autocmd("FileType", {
 --   group = augroup("quickfix-navigation"),
