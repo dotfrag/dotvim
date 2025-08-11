@@ -18,6 +18,7 @@ autocmd("FileType", {
     "help",
     "lspinfo",
     "qf",
+    "vim",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
