@@ -91,3 +91,32 @@ autocmd("BufReadPost", {
   pattern = "fugitive://*",
   command = "setlocal bufhidden=delete",
 })
+
+-- Open plugin repos with gX
+-- https://github.com/dpetka2001/dotfiles/blob/main/dot_config/nvim/lua/config/autocmds.lua#L109
+vim.api.nvim_create_autocmd("BufReadPost", {
+  group = augroup("gX-github-repos"),
+  callback = function()
+    if vim.fn.getcwd() == vim.fn.stdpath("config") then
+      vim.keymap.set("n", "gX", function()
+        local uri = vim.fn.expand("<cfile>") --[[@as string]]
+
+        -- https://github.com/neovim/neovim/blob/e3fd906b614c9ef0fdca3e456b75eae34086555b/runtime/lua/vim/_defaults.lua#L138
+        local cmd, err = vim.ui.open(uri)
+        local rv = cmd and cmd:wait(1000) or nil
+        if cmd and rv and rv.code ~= 0 then
+          err = ("vim.ui.open: command %s (%d): %s"):format((rv.code == 124 and "timeout" or "failed"), rv.code, vim.inspect(cmd.cmd))
+        end
+
+        -- custom handler
+        local link = uri:match("%w[%w%-]+/[%w%-%._]+")
+        if link then
+          vim.ui.open("https://github.com/" .. link)
+          err = nil
+        end
+
+        return err
+      end, { desc = "Open filepath or URI under cursor" })
+    end
+  end,
+})
