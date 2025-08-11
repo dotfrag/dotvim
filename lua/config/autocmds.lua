@@ -33,7 +33,6 @@ autocmd("FileType", {
 
 -- Highlight when yanking text
 autocmd("TextYankPost", {
-  desc = "Highlight when yanking text",
   group = augroup("highlight-yank"),
   callback = function()
     vim.hl.on_yank()
