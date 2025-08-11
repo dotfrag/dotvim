@@ -13,6 +13,7 @@ vim.pack.add({
   "https://github.com/folke/persistence.nvim",
   "https://github.com/folke/snacks.nvim",
   "https://github.com/folke/tokyonight.nvim",
+  "https://github.com/folke/ts-comments.nvim",
   "https://github.com/ibhagwan/fzf-lua",
   "https://github.com/kevinhwang91/nvim-bqf",
   "https://github.com/kylechui/nvim-surround",
