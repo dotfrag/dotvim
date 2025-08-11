@@ -101,10 +101,7 @@ function M.update()
   if M.debounce and not M.can_run() then
     return
   end
-
-  -- LazyVim.on_load("mason.nvim", function()
   vim.defer_fn(M.update_packages, M.start_delay * 1000)
-  -- end)
 end
 
 return M
