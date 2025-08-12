@@ -156,9 +156,10 @@ vim.keymap.set("n", "<leader>un", function() Snacks.notifier.hide() end, { desc 
 
 if vim.g.picker == "snacks" then
   vim.keymap.set("n", "<leader>/", function() Snacks.picker.lines() end, { desc = "Buffer Lines" })
-  vim.keymap.set("n", "<leader>sf", function() Snacks.picker.files() end, { desc = "Find Files (Root Dir)" })
+  vim.keymap.set("n", "<leader>sf", function() Snacks.picker.files() end, { desc = "Files" })
   vim.keymap.set("n", "<leader>.", function() Snacks.picker.resume() end, { desc = "Resume" })
-  vim.keymap.set("n", "<leader>fd", function() Snacks.picker.files({ dirs = { "~/repos/dotfiles", "~/repos/dotfiles-private" }, hidden = true }) end, { desc = "Find Dotfiles" })
+  vim.keymap.set("n", "<leader>fd", function() Snacks.picker.files({ dirs = { "~/repos/dotfiles", "~/repos/dotfiles-private" }, hidden = true }) end, { desc = "Dotfiles" })
+  vim.keymap.set("n", "<leader>fD", function() Snacks.picker.grep({ dirs = { "~/repos/dotfiles", "~/repos/dotfiles-private" }, hidden = true }) end, { desc = "Dotfiles (Grep)" })
   vim.keymap.set("n", "<leader><space>", function() Snacks.picker.smart() end, { desc = "Smart Find Files" })
   vim.keymap.set("n", "<leader>,", function() Snacks.picker.buffers() end, { desc = "Buffers" })
   vim.keymap.set("n", "<leader>:", function() Snacks.picker.command_history() end, { desc = "Command History" })
