@@ -1,5 +1,5 @@
 -- Plugin options
-vim.g.dashboard = "snack" -- dashboard | snacks
+vim.g.dashboard = "snacks" -- dashboard | snacks
 vim.g.explorer = "snacks" -- neo-tree | snacks
 vim.g.folds = "origami" -- ufo | origami
 vim.g.pairs = "autopairs" -- minipairs | autopairs | blinkpairs
