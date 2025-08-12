@@ -6,26 +6,26 @@ vim.keymap.set("n", "<leader>Sl", function() require("persistence").load({ last 
 vim.keymap.set("n", "<leader>Sd", function() require("persistence").stop() end, { desc = "Don't Save Current Session" })
 -- stylua: ignore end
 
-local header
-if vim.g.neovide then
-  header = [[
-███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗██████╗ ███████╗
-████╗  ██║██╔════╝██╔═══██╗██║   ██║██║██╔══██╗██╔════╝
-██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██║  ██║█████╗  
-██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║  ██║██╔══╝  
-██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██████╔╝███████╗
-╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═════╝ ╚══════╝
-      ]]
-else
-  header = [[
-██████╗  ██████╗ ████████╗██╗   ██╗██╗███╗   ███╗
-██╔══██╗██╔═══██╗╚══██╔══╝██║   ██║██║████╗ ████║
-██║  ██║██║   ██║   ██║   ██║   ██║██║██╔████╔██║
-██║  ██║██║   ██║   ██║   ╚██╗ ██╔╝██║██║╚██╔╝██║
-██████╔╝╚██████╔╝   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║
-╚═════╝  ╚═════╝    ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝
-      ]]
-end
+-- local header
+-- if vim.g.neovide then
+--   header = [[
+-- ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗██████╗ ███████╗
+-- ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║██╔══██╗██╔════╝
+-- ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██║  ██║█████╗
+-- ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║  ██║██╔══╝
+-- ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██████╔╝███████╗
+-- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═════╝ ╚══════╝
+--       ]]
+-- else
+--   header = [[
+-- ██████╗  ██████╗ ████████╗██╗   ██╗██╗███╗   ███╗
+-- ██╔══██╗██╔═══██╗╚══██╔══╝██║   ██║██║████╗ ████║
+-- ██║  ██║██║   ██║   ██║   ██║   ██║██║██╔████╔██║
+-- ██║  ██║██║   ██║   ██║   ╚██╗ ██╔╝██║██║╚██╔╝██║
+-- ██████╔╝╚██████╔╝   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║
+-- ╚═════╝  ╚═════╝    ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝
+--       ]]
+-- end
 
 -- https://github.com/LazyVim/LazyVim/blob/ec5981dfb1222c3bf246d9bcaa713d5cfa486fbd/lua/lazyvim/plugins/util.lua#L1-L9
 local function term_nav(dir)
@@ -44,7 +44,7 @@ require("snacks").setup({
     enabled = true,
     width = 50,
     preset = {
-      header = header,
+      header = false,
       -- stylua: ignore
       ---@type snacks.dashboard.Item[]
       keys = {
@@ -52,10 +52,12 @@ require("snacks").setup({
         { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
         { icon = " ", key = "p", desc = "Projects", action = ":lua Snacks.picker.projects()" },
         { icon = " ", key = "e", desc = "Explorer", action = ":lua Snacks.explorer()" },
-        { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+        { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('grep')" },
         { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
         { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
+        { icon = " ", key = "C", desc = "Config (grep)", action = ":lua Snacks.dashboard.pick('grep', {cwd = vim.fn.stdpath('config')})" },
         { icon = " ", key = "d", desc = "Dotfiles", action = ":lua Snacks.dashboard.pick('files', {dirs = {'~/repos/dotfiles', '~/repos/dotfiles-private'}})" },
+        { icon = " ", key = "D", desc = "Dotfiles (grep)", action = ":lua Snacks.dashboard.pick('grep', {dirs = {'~/repos/dotfiles', '~/repos/dotfiles-private'}})" },
         { icon = "󰁯 ", key = "s", desc = "Restore Session", action = function() require("persistence").load() end },
         { icon = "󰦛 ", key = "S", desc = "Restore Last Session", action = function() require("persistence").load({ last = true }) end },
         { icon = "󰏗 ", key = "l", desc = "Packages", action = ":lua vim.pack.update()" },
@@ -163,6 +165,7 @@ if vim.g.picker == "snacks" then
   vim.keymap.set("n", "<leader>n", function() Snacks.picker.notifications() end, { desc = "Notification History" })
   vim.keymap.set("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Buffers" })
   vim.keymap.set("n", "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, { desc = "Config Files" })
+  vim.keymap.set("n", "<leader>fC", function() Snacks.picker.grep({ cwd = vim.fn.stdpath("config") }) end, { desc = "Config Files (Grep)" })
   vim.keymap.set("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Files" })
   vim.keymap.set("n", "<leader>fg", function() Snacks.picker.git_files() end, { desc = "Git Files" })
   vim.keymap.set("n", "<leader>fp", function() Snacks.picker.projects() end, { desc = "Projects" })
