@@ -77,8 +77,12 @@ autocmd("FileType", {
 -- Auto sort file on save
 autocmd("BufWritePre", {
   group = augroup("sort-on-save"),
-  pattern = { "mimeapps.list" },
-  command = "%sort",
+  pattern = { ".cmds", "mimeapps.list" },
+  callback = function()
+    local cur = vim.api.nvim_win_get_cursor(0)
+    vim.cmd.sort()
+    vim.api.nvim_win_set_cursor(0, cur)
+  end,
 })
 
 -- Do not automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode
