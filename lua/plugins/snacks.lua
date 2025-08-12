@@ -20,7 +20,7 @@ end
 require("snacks").setup({
   bigfile = { enabled = true },
   dashboard = {
-    enabled = true,
+    enabled = vim.g.dashboard == "snacks",
     width = 50,
     preset = {
       header = false,

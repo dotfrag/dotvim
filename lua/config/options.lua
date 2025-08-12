@@ -1,11 +1,10 @@
 -- Plugin options
+vim.g.dashboard = "snack" -- dashboard | snacks
 vim.g.explorer = "snacks" -- neo-tree | snacks
 vim.g.folds = "origami" -- ufo | origami
 vim.g.pairs = "autopairs" -- minipairs | autopairs | blinkpairs
 vim.g.picker = "snacks" -- fzf | mini | snacks
 vim.g.prettier_tool = "prettierd" -- prettier | prettierd
-vim.g.statusline = "lualine" -- lualine | heirline
-vim.g.treesitter_new = true -- true (main) | false (master)
 
 local o = vim.o
 

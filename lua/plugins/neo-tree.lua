@@ -2,6 +2,8 @@ if vim.g.explorer ~= "neo-tree" then
   return
 end
 
+vim.pack.add({ "https://github.com/nvim-neo-tree/neo-tree.nvim" })
+
 require("neo-tree").setup({
   commands = {
     -- https://github.com/AstroNvim/AstroNvim/blob/main/lua/astronvim/plugins/neo-tree.lua

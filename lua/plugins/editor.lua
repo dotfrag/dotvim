@@ -3,6 +3,7 @@ require("nvim-surround").setup()
 require("ts-comments").setup()
 
 if vim.g.pairs == "autopairs" then
+  vim.pack.add({ "https://github.com/windwp/nvim-autopairs" })
   require("nvim-autopairs").setup()
 end
 
@@ -20,6 +21,7 @@ vim.keymap.set("c", "<c-s>", function() require("flash").toggle() end, { desc = 
 vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle)
 
 if vim.g.folds == "origami" then
+  vim.pack.add({ "https://github.com/chrisgrieser/nvim-origami" })
   require("origami").setup()
 end
 

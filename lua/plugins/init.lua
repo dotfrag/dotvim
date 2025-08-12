@@ -3,7 +3,6 @@ vim.pack.add({
   { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
   "https://github.com/akinsho/bufferline.nvim",
   "https://github.com/b0o/SchemaStore.nvim",
-  "https://github.com/chrisgrieser/nvim-origami",
   "https://github.com/chrisgrieser/nvim-recorder",
   "https://github.com/chrisgrieser/nvim-rip-substitute",
   "https://github.com/danymat/neogen",
@@ -14,7 +13,6 @@ vim.pack.add({
   "https://github.com/folke/snacks.nvim",
   "https://github.com/folke/tokyonight.nvim",
   "https://github.com/folke/ts-comments.nvim",
-  "https://github.com/ibhagwan/fzf-lua",
   "https://github.com/kevinhwang91/nvim-bqf",
   "https://github.com/kylechui/nvim-surround",
   "https://github.com/lewis6991/gitsigns.nvim",
@@ -29,7 +27,6 @@ vim.pack.add({
   "https://github.com/NMAC427/guess-indent.nvim",
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/nvim-lua/plenary.nvim",
-  "https://github.com/nvim-neo-tree/neo-tree.nvim",
   "https://github.com/nvim-treesitter/nvim-treesitter-context",
   "https://github.com/rachartier/tiny-inline-diagnostic.nvim",
   "https://github.com/saghen/blink.cmp",
@@ -38,7 +35,6 @@ vim.pack.add({
   "https://github.com/stevearc/oil.nvim",
   "https://github.com/tpope/vim-fugitive",
   "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
-  "https://github.com/windwp/nvim-autopairs",
 })
 
 vim.cmd("colorscheme tokyonight")
@@ -49,6 +45,7 @@ MiniMisc.setup_restore_cursor()
 
 local plugins = {
   "oil",
+  "dashboard",
   "snacks",
   "treesitter",
   "lsp",
