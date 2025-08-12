@@ -78,8 +78,12 @@ autocmd("FileType", {
 -- Auto sort file on save
 autocmd("BufWritePre", {
   group = augroup("sort-on-save"),
-  pattern = { "mimeapps.list" },
-  command = "%sort",
+  pattern = { ".cmds", "mimeapps.list" },
+  callback = function()
+    local cur = vim.api.nvim_win_get_cursor(0)
+    vim.cmd.sort()
+    vim.api.nvim_win_set_cursor(0, cur)
+  end,
 })
 
 -- -- Navigate quickfix list without enter key
