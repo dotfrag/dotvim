@@ -62,19 +62,6 @@ autocmd("VimResized", {
   end,
 })
 
--- Custom formatters for json files
-autocmd("FileType", {
-  group = augroup("formatters-json"),
-  pattern = { "json" },
-  callback = function(event)
-    vim.keymap.set("n", "<leader>cq", function()
-      local filepath = vim.fn.expand("%:p")
-      -- stylua: ignore
-      vim.cmd("!jq 'to_entries|sort|from_entries' " .. filepath .. " > " .. filepath .. ".tmp && mv -vi -f " .. filepath .. ".tmp " .. filepath)
-    end, { buffer = event.buf, desc = "Sort JSON Keys" })
-  end,
-})
-
 -- Auto sort file on save
 autocmd("BufWritePre", {
   group = augroup("sort-on-save"),
