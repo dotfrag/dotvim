@@ -51,7 +51,7 @@ o.title = true -- Set window title
 o.ttimeout = true -- Fix leader key timeout
 o.undofile = true -- Save undo history
 o.updatetime = 250 -- Swap file update time
-o.winborder = "rounded" -- Border style of floating windows
+o.winborder = "single" -- Border style of floating windows
 o.wrap = false -- Disable line wrap
 vim.opt.diffopt:append("iwhite") -- Ignore whitespace in diff mode
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" } -- Strings to use in list mode
