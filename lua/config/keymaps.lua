@@ -35,6 +35,11 @@ map("i", "II", "<C-o>I")
 -- Append text in insert mode
 map("i", "AA", "<C-o>A")
 
+-- Comment and duplicate current line
+map("n", "<localleader>d", function()
+  vim.cmd.normal("yygccp")
+end)
+
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
 map("n", "<leader>ur", "<cmd>nohlsearch|diffupdate|normal! <C-l><cr>", { desc = "Redraw / Clear hlsearch / Diff Update" })
