@@ -92,8 +92,6 @@ map("n", "<leader>D", "<cmd>bd<cr>", { desc = "Delete Buffer and Window" })
 -- Quickfix
 map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
 map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
--- map("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
--- map("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
 
 -- Better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
