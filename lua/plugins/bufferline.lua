@@ -1,3 +1,5 @@
+-- also: https://github.com/romgrk/barbar.nvim
+
 require("bufferline").setup({
   options = {
     -- always_show_bufferline = false,
