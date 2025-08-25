@@ -1,11 +1,13 @@
 require("bufferline").setup({
   options = {
-    always_show_bufferline = false,
+    -- always_show_bufferline = false,
     close_command = function(n)
-      require("mini.bufremove").delete(n)
+      -- require("mini.bufremove").delete(n)
+      Snacks.bufdelete(n)
     end,
     right_mouse_command = function(n)
-      require("mini.bufremove").delete(n)
+      -- require("mini.bufremove").delete(n)
+      Snacks.bufdelete(n)
     end,
     diagnostics = "nvim_lsp",
     offsets = {
