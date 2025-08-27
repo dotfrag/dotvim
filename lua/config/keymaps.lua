@@ -121,6 +121,17 @@ map("v", ">", ">gv")
 map("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
 map("n", "<leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree" })
 
+-- Toggle virtualedit
+map("n", "<leader>uv", function()
+  if vim.o.virtualedit == "" then
+    vim.o.virtualedit = "all"
+    vim.notify("Enabled Virtual Edit", vim.log.levels.INFO)
+  else
+    vim.o.virtualedit = ""
+    vim.notify("Disabled Virtual Edit", vim.log.levels.WARN)
+  end
+end)
+
 -- Regex
 map("n", "<leader>ra", "/[^\\x00-\\x7F]<cr>", { desc = "Find Non-ASCII Characters" })
 map("n", "<leader>rb", "<cmd>s/ /\\r/g<cr>|<cmd>noh<cr>", { desc = "Break Line" })
