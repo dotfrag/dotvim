@@ -46,10 +46,10 @@ require("conform").setup({
     ["markdown.mdx"] = { "prettierd" },
 
     -- biome
-    javascript = { "biome" },
-    typescript = { "biome" },
-    json = { "biome" },
-    jsonc = { "biome" },
+    javascript = { "biome-check" },
+    typescript = { "biome-check" },
+    json = { "biome-check" },
+    jsonc = { "biome-check" },
 
     -- other
     -- go = { "goimports", "gofumpt" },
