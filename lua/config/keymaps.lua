@@ -141,7 +141,7 @@ map("n", "<leader>re", "<cmd>g/^$/d<cr>|<cmd>noh<cr>", { desc = "Delete Empty Li
 -- map("n", "<leader>rE", "<cmd>%!cat -s<cr>", { desc = "Delete Multiple Empty Lines" })
 map("n", "<leader>rE", [[:%s!\n\n\n\+!\r\r!g<cr>|<cmd>noh<cr>]], { desc = "Delete Multiple Empty Lines" })
 map("n", "<leader>rp", "<cmd>%s/[^[:print:]]//<cr>|<cmd>noh<cr>``", { desc = "Remove Non-Printable Characters" })
-map("n", "<leader>rt", "<cmd>%s/\\s\\+$//<cr>|<cmd>noh<cr>``", { desc = "Remove Trailing Whitespace" }) -- alternative: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-trailspace.md
+map("n", "<leader>rt", "<cmd>%s/\\s\\+$//<cr>|<cmd>noh<cr>``", { desc = "Remove Trailing Whitespace" }) -- alternative: https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-trailspace.md
 map("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace Word" })
 -- stylua: ignore start
 map("n", "<leader>rm", function() Util.modeline() end, { desc = "Append Modeline", noremap = true, silent = true })
