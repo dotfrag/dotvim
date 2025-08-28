@@ -1,8 +1,8 @@
 return {
   {
     -- also: https://github.com/chrisgrieser/nvim-various-textobjs and https://github.com/wellle/targets.vim
-    "echasnovski/mini.ai",
-    dependencies = "echasnovski/mini.extra",
+    "nvim-mini/mini.ai",
+    dependencies = "nvim-mini/mini.extra",
     event = "LazyFile",
     opts = function()
       local ai = require("mini.ai")
@@ -34,13 +34,13 @@ return {
   },
 
   {
-    "echasnovski/mini.operators",
+    "nvim-mini/mini.operators",
     event = "LazyFile",
     opts = {},
   },
 
   {
-    "echasnovski/mini.splitjoin",
+    "nvim-mini/mini.splitjoin",
     keys = {
       {
         "<leader>cj",
@@ -59,7 +59,7 @@ return {
   },
 
   {
-    "echasnovski/mini.misc",
+    "nvim-mini/mini.misc",
     config = function()
       local mm = require("mini.misc")
       mm.setup_auto_root()
@@ -69,19 +69,19 @@ return {
   },
 
   {
-    "echasnovski/mini.align",
+    "nvim-mini/mini.align",
     event = "LazyFile",
     opts = {},
   },
 
   {
-    "echasnovski/mini.move",
+    "nvim-mini/mini.move",
     event = "LazyFile",
     opts = {},
   },
 
   -- {
-  --   "echasnovski/mini.surround",
+  --   "nvim-mini/mini.surround",
   --   keys = function(_, keys)
   --     -- Populate the keys based on the user's options
   --     -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/coding/mini-surround.lua
@@ -115,7 +115,7 @@ return {
 
   -- currently using snacks indent
   -- {
-  --   "echasnovski/mini.indentscope",
+  --   "nvim-mini/mini.indentscope",
   --   event = "LazyFile",
   --   opts = {
   --     symbol = "│",
@@ -145,7 +145,7 @@ return {
   -- },
 
   {
-    "echasnovski/mini.icons",
+    "nvim-mini/mini.icons",
     lazy = true,
     init = function()
       package.preload["nvim-web-devicons"] = function()
@@ -157,7 +157,7 @@ return {
 
   -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/editor/mini-files.lua
   {
-    "echasnovski/mini.files",
+    "nvim-mini/mini.files",
     opts = {
       windows = {
         preview = true,

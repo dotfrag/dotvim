@@ -1,6 +1,6 @@
 return {
   {
-    "echasnovski/mini.pairs",
+    "nvim-mini/mini.pairs",
     enabled = vim.g.pairs == "mini",
     event = "LazyFile",
     opts = {},
