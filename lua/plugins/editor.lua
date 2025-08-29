@@ -38,6 +38,8 @@ vim.keymap.set({ "n", "x" }, "<localleader>s", function()
   require("rip-substitute").sub()
 end)
 
+vim.keymap.set("n", "<localleader>S", ":S/g<Left>", { desc = "Abolish Substitute" })
+
 require("neogen").setup({})
 
 require("debugprint").setup({ display_counter = false })

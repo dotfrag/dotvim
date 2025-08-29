@@ -35,6 +35,7 @@ vim.pack.add({
   "https://github.com/sindrets/diffview.nvim",
   "https://github.com/stevearc/conform.nvim",
   "https://github.com/stevearc/oil.nvim",
+  "https://github.com/tpope/vim-abolish",
   "https://github.com/tpope/vim-fugitive",
   "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
 })
