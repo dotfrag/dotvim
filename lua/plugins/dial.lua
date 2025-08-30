@@ -169,16 +169,8 @@ local function dial(increment, g)
   return require("dial.map")[func](group)
 end
 
--- stylua ignore: start
-vim.keymap.set({ "n", "v" }, "<C-a>", function()
-  return dial(true)
-end, { expr = true, desc = "Increment" })
-vim.keymap.set({ "n", "v" }, "<C-x>", function()
-  return dial(false)
-end, { expr = true, desc = "Decrement" })
-vim.keymap.set({ "n", "v" }, "g<C-a>", function()
-  return dial(true, true)
-end, { expr = true, desc = "Increment" })
-vim.keymap.set({ "n", "v" }, "g<C-x>", function()
-  return dial(false, true)
-end, { expr = true, desc = "Decrement" })
+-- stylua: ignore start
+vim.keymap.set({ "n", "v" }, "<C-a>", function() return dial(true) end, { expr = true, desc = "Increment" })
+vim.keymap.set({ "n", "v" }, "<C-x>", function() return dial(false) end, { expr = true, desc = "Decrement" })
+vim.keymap.set({ "n", "v" }, "g<C-a>", function() return dial(true, true) end, { expr = true, desc = "Increment" })
+vim.keymap.set({ "n", "v" }, "g<C-x>", function() return dial(false, true) end, { expr = true, desc = "Decrement" })
