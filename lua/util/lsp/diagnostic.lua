@@ -14,7 +14,7 @@ local diagnostic_icons = {
 local function setup_static()
   vim.diagnostic.config({
     severity_sort = true,
-    float = { border = "rounded", source = "if_many" },
+    float = { source = "if_many" },
     -- underline = true,
     underline = { severity = vim.diagnostic.severity.ERROR },
     signs = { text = diagnostic_icons },
@@ -44,7 +44,7 @@ local function setup_dynamic()
   vim.diagnostic.config({
     update_in_insert = true,
     severity_sort = true,
-    float = { border = "rounded", source = "if_many" },
+    float = { source = "if_many" },
     -- underline = true,
     underline = { severity = vim.diagnostic.severity.ERROR },
     signs = { text = diagnostic_icons },
@@ -129,7 +129,7 @@ local function setup_hover()
 
   vim.api.nvim_create_autocmd("CursorHold", {
     callback = function()
-      vim.diagnostic.open_float(nil, { focusable = false, source = "if_many", border = "rounded" })
+      vim.diagnostic.open_float(nil, { focusable = false, source = "if_many" })
     end,
   })
 end
@@ -138,7 +138,7 @@ local function setup_tiny()
   require("tiny-inline-diagnostic").setup()
   vim.diagnostic.config({
     severity_sort = true,
-    float = { border = "rounded", source = "if_many" },
+    float = { source = "if_many" },
     underline = { severity = vim.diagnostic.severity.ERROR },
     signs = { text = diagnostic_icons },
     virtual_text = false,
