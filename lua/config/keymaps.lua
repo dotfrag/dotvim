@@ -75,8 +75,8 @@ end)
 map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 map("t", "<C-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
 
--- Folds
-map("n", "<Tab>", "za", { desc = "Toggle Fold" })
+-- Folds (conflicts with Ctrl-I)
+-- map("n", "<Tab>", "za", { desc = "Toggle Fold" })
 
 -- stylua: ignore start
 
@@ -121,16 +121,11 @@ map("v", ">", ">gv")
 map("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
 map("n", "<leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree" })
 
+-- Comment line
+map("n", "<localleader>c", Util.text.comment_line, { desc = "Comment line" })
+
 -- Toggle virtualedit
-map("n", "<leader>uv", function()
-  if vim.o.virtualedit == "" then
-    vim.o.virtualedit = "all"
-    vim.notify("Enabled Virtual Edit", vim.log.levels.INFO)
-  else
-    vim.o.virtualedit = ""
-    vim.notify("Disabled Virtual Edit", vim.log.levels.WARN)
-  end
-end)
+map("n", "<leader>uv", Util.text.virtualedit)
 
 -- Regex
 map("n", "<leader>ra", "/[^\\x00-\\x7F]<cr>", { desc = "Find Non-ASCII Characters" })
@@ -144,8 +139,8 @@ map("n", "<leader>rp", "<cmd>%s/[^[:print:]]//<cr>|<cmd>noh<cr>``", { desc = "Re
 map("n", "<leader>rt", "<cmd>%s/\\s\\+$//<cr>|<cmd>noh<cr>``", { desc = "Remove Trailing Whitespace" }) -- alternative: https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-trailspace.md
 map("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace Word" })
 -- stylua: ignore start
-map("n", "<leader>rm", function() Util.modeline() end, { desc = "Append Modeline", noremap = true, silent = true })
-map("n", "<leader>rM", function() Util.modeline(true) end, { desc = "Append Modeline (Long Format)", noremap = true, silent = true })
+map("n", "<leader>rm", function() Util.text.modeline() end, { desc = "Append Modeline", noremap = true, silent = true })
+map("n", "<leader>rM", function() Util.text.modeline(true) end, { desc = "Append Modeline (Long Format)", noremap = true, silent = true })
 -- stylua: ignore end
 
 -- Neovide copy/paste
