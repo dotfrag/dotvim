@@ -45,6 +45,7 @@ autocmd("BufEnter", {
   pattern = {
     "*/waybar/config*",
     "*/yazi/*.toml",
+    "wireguard-install.sh",
   },
   callback = function()
     vim.b.disable_autoformat = true
