@@ -50,7 +50,7 @@ end
 function M.update_packages()
   local ok, registry = pcall(require, "mason-registry")
   if not ok then
-    vim.api.nvim_err_writeln("Unable to access mason registry")
+    vim.api.nvim_echo({ { "Unable to access mason registry" } }, true, { err = true })
     return
   end
 
