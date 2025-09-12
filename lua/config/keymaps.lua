@@ -143,6 +143,22 @@ map("n", "<leader>rm", function() Util.text.modeline() end, { desc = "Append Mod
 map("n", "<leader>rM", function() Util.text.modeline(true) end, { desc = "Append Modeline (Long Format)", noremap = true, silent = true })
 -- stylua: ignore end
 
+-- Everything is magic
+local verymagic = true
+if verymagic then
+  -- Normal mode search
+  vim.keymap.set("n", "/", "/\\v")
+  vim.keymap.set("n", "?", "?\\v")
+
+  -- Substitute
+  vim.keymap.set("c", "s/", "s/\\v")
+  vim.keymap.set("c", "%s/", "%s/\\v")
+
+  -- Global commands
+  vim.keymap.set("c", "g/", "g/\\v")
+  vim.keymap.set("c", "v/", "v/\\v")
+end
+
 -- Neovide copy/paste
 -- https://github.com/neovide/neovide/issues/1282#issuecomment-1980984696
 if vim.g.neovide then
