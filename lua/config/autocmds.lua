@@ -41,7 +41,7 @@ autocmd("TextYankPost", {
 
 -- Disable autoformat for some files
 autocmd("BufEnter", {
-  group = augroup("disable_autoformat"),
+  group = augroup("disable-autoformat"),
   pattern = {
     "*/waybar/config*",
     "*/yazi/*.toml",

@@ -15,8 +15,8 @@ map("n", "<esc>", "<cmd>noh<cr>")
 -- map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>")
 
 -- Put on new line
+map("n", "[p", "O<esc>p==^", { desc = "Put Indented Before Cursor (linewise)" })
 map("n", "]p", "o<esc>p==^", { desc = "Put Indented After Cursor (linewise)" })
-map("n", "[p", "O<esc>p==^", { desc = "Put Indented After Cursor (linewise)" })
 
 -- -- Clipboard
 -- vim.keymap.set({ "n", "v", "x" }, "<leader>y", '"+y<cr>')
