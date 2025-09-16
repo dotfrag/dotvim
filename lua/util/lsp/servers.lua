@@ -97,9 +97,9 @@ return {
 
   jsonls = {
     -- lazy-load schemastore when needed
-    on_init = function(client)
-      client.settings.json.schemas = client.settings.json.schemas or {}
-      vim.list_extend(client.settings.json.schemas, require("schemastore").json.schemas())
+    before_init = function(_, config)
+      config.settings.json.schemas = config.settings.json.schemas or {}
+      vim.list_extend(config.settings.json.schemas, require("schemastore").json.schemas())
     end,
     settings = {
       json = {
@@ -120,8 +120,8 @@ return {
       },
     },
     -- lazy-load schemastore when needed
-    on_init = function(client)
-      client.settings.yaml.schemas = vim.tbl_deep_extend("force", client.settings.yaml.schemas or {}, require("schemastore").yaml.schemas())
+    before_init = function(_, config)
+      config.settings.yaml.schemas = vim.tbl_deep_extend("force", config.settings.yaml.schemas or {}, require("schemastore").yaml.schemas())
     end,
     settings = {
       redhat = { telemetry = { enabled = false } },
