@@ -49,7 +49,10 @@ require("blink-cmp").setup({
   },
 
   sources = {
-    default = { "lsp", "path", "snippets", "lazydev", "buffer" },
+    default = { "lsp", "path", "snippets", "buffer" },
+    per_filetype = {
+      lua = { inherit_defaults = true, "lazydev" },
+    },
     providers = {
       -- lsp = { fallbacks = {} }, -- defaults to `{ 'buffer' }` (to always show the buffer source)
       lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
