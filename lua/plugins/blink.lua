@@ -64,6 +64,21 @@ require("blink-cmp").setup({
     },
   },
 
+  -- Command line completion
+  cmdline = {
+    enabled = true,
+    keymap = { preset = "cmdline" },
+    completion = {
+      list = { selection = { preselect = false } },
+      menu = {
+        auto_show = function(_)
+          return vim.fn.getcmdtype() == ":"
+        end,
+      },
+      ghost_text = { enabled = true },
+    },
+  },
+
   -- Shows a signature help window while you type arguments for a function
   signature = {
     enabled = true,
