@@ -52,7 +52,20 @@ require("snacks").setup({
   indent = { enabled = true },
   input = { enabled = true },
   notifier = { enabled = true },
-  picker = { enabled = vim.g.picker == "snacks" },
+  picker = {
+    enabled = vim.g.picker == "snacks",
+    actions = require("trouble.sources.snacks").actions,
+    win = {
+      input = {
+        keys = {
+          ["<c-t>"] = {
+            "trouble_open",
+            mode = { "n", "i" },
+          },
+        },
+      },
+    },
+  },
   quickfile = { enabled = true },
   terminal = {
     win = {

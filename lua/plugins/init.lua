@@ -13,8 +13,8 @@ vim.pack.add({
   "https://github.com/folke/persistence.nvim",
   "https://github.com/folke/snacks.nvim",
   "https://github.com/folke/tokyonight.nvim",
+  "https://github.com/folke/trouble.nvim",
   "https://github.com/folke/ts-comments.nvim",
-  "https://github.com/kevinhwang91/nvim-bqf",
   "https://github.com/kylechui/nvim-surround",
   "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/MagicDuck/grug-far.nvim",
@@ -38,6 +38,7 @@ vim.pack.add({
   "https://github.com/tpope/vim-abolish",
   "https://github.com/tpope/vim-fugitive",
   "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
+  -- "https://github.com/kevinhwang91/nvim-bqf",
 })
 
 vim.cmd.colorscheme("tokyonight-night")
@@ -65,6 +66,7 @@ local plugins_lazy = {
   "dial",
   "fzf",
   "neo-tree",
+  "trouble",
 }
 
 for _, plugin in ipairs(plugins) do
