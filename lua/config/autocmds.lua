@@ -45,6 +45,7 @@ autocmd("BufEnter", {
   pattern = {
     "*/waybar/config*",
     "*/yazi/*.toml",
+    "networkmanager_dmenu",
     "wireguard-install.sh",
   },
   callback = function()
