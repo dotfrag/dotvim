@@ -77,7 +77,7 @@ vim.filetype.add({
     ["%.env%.[%w_.-]+"] = "sh",
     [".*/hypr/.+%.conf"] = "hyprlang",
     [".*/kitty/.+%.conf"] = "kitty",
-    [".*/waybar/config"] = "jsonc",
+    [".*/waybar/config.*"] = "jsonc",
   },
 })
 vim.treesitter.language.register("bash", { "kitty", "zsh" })
