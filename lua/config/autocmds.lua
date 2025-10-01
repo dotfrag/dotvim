@@ -43,7 +43,6 @@ autocmd("TextYankPost", {
 autocmd("BufEnter", {
   group = augroup("disable-autoformat"),
   pattern = {
-    "*/waybar/config*",
     "*/yazi/*.toml",
     "networkmanager_dmenu",
     "wireguard-install.sh",
