@@ -34,6 +34,7 @@ require("conform").setup({
     -- lua and shell
     lua = { "stylua" },
     sh = { "shfmt", "shellcheck" },
+    zsh = { "shfmt", "shellcheck" },
 
     -- prettier
     html = { vim.g.prettier_tool },
