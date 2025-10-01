@@ -59,6 +59,8 @@ require("conform").setup({
   },
 })
 
+vim.keymap.set("n", "<leader>cF", "<cmd>ConformInfo<cr>")
+
 vim.keymap.set("n", "<leader>cf", function()
   require("conform").format({ async = true, lsp_format = "fallback" })
 end)
