@@ -28,6 +28,8 @@ map("c", "<C-k>", "<Up>", { desc = "Previous Command" })
 
 -- Center view in insert mode
 map("i", "zz", "<C-o>zz")
+map("i", "zt", "<C-o>zt")
+map("i", "zb", "<C-o>zb")
 
 -- Insert text in insert mode
 map("i", "II", "<C-o>I")
