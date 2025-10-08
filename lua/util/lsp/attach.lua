@@ -25,7 +25,7 @@ return function()
       -- -- The following two autocommands are used to highlight references of the
       -- -- word under your cursor when your cursor rests there for a little while.
       -- -- (using snacks.word instead)
-      -- if client and client:supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
+      -- if client and client:supports_method(client, 'textDocument/documentHighlight', event.buf) then
       --   local highlight_augroup = vim.api.nvim_create_augroup("dotvim_lsp-highlight", { clear = false })
       --   vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
       --     buffer = event.buf,
@@ -58,7 +58,7 @@ return function()
       end
 
       -- -- Inlay hints (currently using snacks for this)
-      -- if client and client:supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+      -- if client and client:supports_method(client, 'textDocument/inlayHint', event.buf) then
       --   map("<leader>uh", function()
       --     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
       --   end, "Toggle Inlay Hints")
