@@ -137,8 +137,8 @@ vim.keymap.set({ "n", "t" }, "<a-n>", function() Snacks.words.jump(vim.v.count1,
 vim.keymap.set({ "n", "t" }, "<a-p>", function() Snacks.words.jump(-vim.v.count1, true) end, { desc = "Prev Reference" })
 
 -- Terminal
--- vim.keymap.set("n", "<C-/>", function() Snacks.terminal() end, { desc = "Terminal" })
--- vim.keymap.set("n", "<C-_>", function() Snacks.terminal() end, { desc = "which_key_ignore" })
+-- vim.keymap.set({"n","t"}, "<c-/>", function() Snacks.terminal() end, { desc = "Terminal" })
+-- vim.keymap.set({"n","t"}, "<c-_>", function() Snacks.terminal() end, { desc = "which_key_ignore" })
 
 -- Other
 vim.keymap.set("n", "<leader>Z", function() Snacks.zen.zoom() end, { desc = "Toggle Zoom" })
