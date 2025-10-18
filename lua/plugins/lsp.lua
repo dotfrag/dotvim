@@ -1,5 +1,6 @@
 local mason_packages = {
   "djlint", -- django
+  "kulala-fmt", -- http
   "shellcheck", -- bash
   "shfmt", -- bash
   "sql-formatter", -- sql

@@ -29,6 +29,11 @@ require("conform").setup({
   formatters = {
     shfmt = { prepend_args = { "--simplify", "--indent", "2", "--binary-next-line", "--case-indent", "--space-redirects" } },
     sql_formatter = { prepend_args = { "--config", vim.json.encode(sql_formatter_opts) } },
+    kulala = {
+      command = "kulala-fmt",
+      args = { "format", "$FILENAME" },
+      stdin = false,
+    },
   },
   formatters_by_ft = {
     -- lua and shell
@@ -54,6 +59,7 @@ require("conform").setup({
     -- other
     -- go = { "goimports", "gofumpt" },
     htmldjango = { "djlint" },
+    http = { "kulala" },
     python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
     sql = { "sql_formatter" },
   },
