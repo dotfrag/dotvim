@@ -85,18 +85,20 @@ vim.api.nvim_create_autocmd("PackChanged", {
   callback = function(ev)
     local data = ev.data
     vim.print(data)
-    if data.kind ~= "delete" then
-      if data.spec.name == "nvim-treesitter" then
-        vim.notify("nvim-treesitter was updated, running :TSUpdate", vim.log.levels.INFO)
-        vim.schedule(function()
-          vim.cmd.TSUpdate()
-        end)
-      elseif data.spec.name == "blink.cmp" then
-        vim.notify("blink.cmp was updated, running :BlinkBinary", vim.log.levels.INFO)
-        vim.schedule(function()
-          vim.cmd.BlinkBinary()
-        end)
-      end
+    if data.kind == "delete" then
+      return
+    end
+
+    if data.spec.name == "nvim-treesitter" then
+      vim.notify("nvim-treesitter was updated, running :TSUpdate", vim.log.levels.INFO)
+      vim.schedule(function()
+        vim.cmd.TSUpdate()
+      end)
+    elseif data.spec.name == "blink.cmp" then
+      vim.notify("blink.cmp was updated, running :BlinkBinary", vim.log.levels.INFO)
+      vim.schedule(function()
+        vim.cmd.BlinkBinary()
+      end)
     end
   end,
 })
