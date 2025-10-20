@@ -78,3 +78,25 @@ Util.on_vim_enter(function()
     require("plugins." .. plugin)
   end
 end)
+
+-- https://www.reddit.com/r/neovim/comments/1mnsj7u/does_nightlys_new_packnvim_have_a_build_stage/
+vim.api.nvim_create_autocmd("PackChanged", {
+  group = vim.api.nvim_create_augroup("dotvim_pack-changed", { clear = true }),
+  callback = function(ev)
+    local data = ev.data
+    vim.print(data)
+    if data.kind ~= "delete" then
+      if data.spec.name == "nvim-treesitter" then
+        vim.notify("nvim-treesitter was updated, running :TSUpdate", vim.log.levels.INFO)
+        vim.schedule(function()
+          vim.cmd.TSUpdate()
+        end)
+      elseif data.spec.name == "blink.cmp" then
+        vim.notify("blink.cmp was updated, running :BlinkBinary", vim.log.levels.INFO)
+        vim.schedule(function()
+          vim.cmd.BlinkBinary()
+        end)
+      end
+    end
+  end,
+})
