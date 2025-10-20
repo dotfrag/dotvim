@@ -42,6 +42,13 @@ map("n", "<localleader>d", function()
   vim.cmd.normal("yygccp")
 end)
 
+-- Put messages into buffer
+map("n", "<localleader>m", function()
+  -- vim.cmd("put =execute('messages')")
+  -- vim.api.nvim_buf_set_lines(0, -1, -1, false, vim.split(vim.api.nvim_exec2("messages", { output = true }).output, "\n"))
+  vim.api.nvim_put(vim.split(vim.api.nvim_exec2("messages", { output = true }).output, "\n"), "l", true, true)
+end)
+
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
 map("n", "<leader>ur", "<cmd>nohlsearch|diffupdate|normal! <C-l><cr>", { desc = "Redraw / Clear hlsearch / Diff Update" })
