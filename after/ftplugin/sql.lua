@@ -1,9 +1,13 @@
 -- add transaction block on save
-
 local function ensure_transaction()
+  -- do not run if inside git repo
+  if vim.fs.find(".git", { upward = true })[1] ~= nil then
+    return
+  end
+
   local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
 
-  -- Ensure BEGIN at the top
+  -- ensure BEGIN at the top
   if not (lines[1] and lines[1]:match("^BEGIN;$")) then
     table.insert(lines, 1, "")
     table.insert(lines, 1, "BEGIN;")
@@ -12,20 +16,20 @@ local function ensure_transaction()
     table.insert(lines, 2, "")
   end
 
-  -- Ensure COMMIT at the bottom
+  -- ensure COMMIT at the bottom
   local last = lines[#lines]
   if not (last and last:match("^COMMIT;$")) then
     if last and last:match("^END;%s*$") then
-      -- Replace END with COMMIT
+      -- replace END with COMMIT
       lines[#lines] = "COMMIT;"
     else
-      -- Add empty line + COMMIT
+      -- add empty line + COMMIT
       table.insert(lines, "")
       table.insert(lines, "COMMIT;")
     end
   end
 
-  -- Ensure empty line before COMMIT
+  -- ensure empty line before COMMIT
   local second_last = lines[#lines - 1]
   if not (second_last and second_last:match("^%s*$")) then
     table.insert(lines, #lines, "")
