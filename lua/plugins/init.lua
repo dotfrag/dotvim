@@ -84,7 +84,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
   group = vim.api.nvim_create_augroup("dotvim_pack-changed", { clear = true }),
   callback = function(ev)
     local data = ev.data
-    vim.print(data)
+    -- vim.print(data)
     if data.kind == "delete" then
       return
     end
