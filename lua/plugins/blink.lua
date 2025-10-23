@@ -1,26 +1,38 @@
 local plugin_path = vim.fn.stdpath("data") .. "/site/pack/core/opt/blink.cmp"
 local binary_dir = plugin_path .. "/target/release"
 local binary_path = binary_dir .. "/libblink_cmp_fuzzy.so"
+local compile = true
 
 vim.api.nvim_create_user_command("BlinkBinary", function()
-  vim.notify("blink.cmp: downloading pre-built binary", vim.log.levels.INFO)
-  -- local obj = vim.system({ "cargo", "build", "--release" }, { cwd = plugin_path }):wait()
-  vim.fn.mkdir(binary_dir, "p")
-  vim.system({
-    "wget",
-    "-O",
-    binary_path,
-    "https://github.com/Saghen/blink.cmp/releases/latest/download/x86_64-unknown-linux-gnu.so",
-  }, { text = true }, function(obj)
-    vim.schedule(function()
+  if compile then
+    vim.notify("blink.cmp: compiling binary", vim.log.levels.INFO)
+    vim.system({ "cargo", "build", "--release" }, { cwd = plugin_path, text = true }, function(obj)
+      if obj.code == 0 then
+        vim.notify("blink.cmp: compilation finished", vim.log.levels.INFO)
+      else
+        vim.notify("blink.cmp: compilation failed", vim.log.levels.ERROR)
+        vim.print(obj.stderr)
+      end
+    end)
+  else
+    vim.notify("blink.cmp: downloading pre-built binary", vim.log.levels.INFO)
+    vim.fn.mkdir(binary_dir, "p")
+    vim.system({
+      "wget",
+      "-O",
+      binary_path,
+      "https://github.com/Saghen/blink.cmp/releases/latest/download/x86_64-unknown-linux-gnu.so",
+    }, { text = true }, function(obj)
+      -- vim.schedule(function()
       if obj.code == 0 then
         vim.notify("blink.cmp: downloading complete", vim.log.levels.INFO)
       else
         vim.notify("blink.cmp: downloading failed", vim.log.levels.ERROR)
         vim.print(obj.stderr)
       end
+      -- end)
     end)
-  end)
+  end
 end, { desc = "Download latest blink pre-built binary" })
 
 if not vim.uv.fs_stat(binary_path) then
