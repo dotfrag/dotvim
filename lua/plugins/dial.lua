@@ -172,5 +172,5 @@ end
 -- stylua: ignore start
 vim.keymap.set({ "n", "v" }, "<C-a>", function() return dial(true) end, { expr = true, desc = "Increment" })
 vim.keymap.set({ "n", "v" }, "<C-x>", function() return dial(false) end, { expr = true, desc = "Decrement" })
-vim.keymap.set({ "n", "v" }, "g<C-a>", function() return dial(true, true) end, { expr = true, desc = "Increment" })
-vim.keymap.set({ "n", "v" }, "g<C-x>", function() return dial(false, true) end, { expr = true, desc = "Decrement" })
+vim.keymap.set({ "n", "x" }, "g<C-a>", function() return dial(true, true) end, { expr = true, desc = "Increment" })
+vim.keymap.set({ "n", "x" }, "g<C-x>", function() return dial(false, true) end, { expr = true, desc = "Decrement" })

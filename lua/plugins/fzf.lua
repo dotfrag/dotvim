@@ -80,4 +80,4 @@ vim.keymap.set("n", "<leader>sp", "<cmd>FzfLua live_grep cwd=" .. plugins .. "<c
 vim.keymap.set("n", "<leader>sq", "<cmd>FzfLua quickfix<cr>", { desc = "Quickfix List" })
 vim.keymap.set("n", '<leader>s"', "<cmd>FzfLua registers<cr>", { desc = "Registers" })
 vim.keymap.set("n", "<leader>sw", "<cmd>FzfLua grep_cword<cr>", { desc = "Word" })
-vim.keymap.set("v", "<leader>sw", "<cmd>FzfLua grep_visual<cr>", { desc = "Visual Selection or Word" })
+vim.keymap.set("x", "<leader>sw", "<cmd>FzfLua grep_visual<cr>", { desc = "Visual Selection or Word" })

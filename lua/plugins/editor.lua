@@ -54,7 +54,7 @@ require("debugprint").setup({ display_counter = false })
 
 require("grug-far").setup()
 
-vim.keymap.set({ "n", "v" }, "<leader>sr", function()
+vim.keymap.set({ "n", "x" }, "<leader>sr", function()
   local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
   require("grug-far").open({
     transient = true,

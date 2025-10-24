@@ -123,8 +123,8 @@ map("i", ".", ".<C-g>u")
 map("i", ";", ";<C-g>u")
 
 -- Better indenting
-map("v", "<", "<gv")
-map("v", ">", ">gv")
+map("x", "<", "<gv")
+map("x", ">", ">gv")
 
 -- Inspect
 map("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
