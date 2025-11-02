@@ -19,8 +19,32 @@ local function attach(buf, language)
   return true
 end
 
--- ensure basic parser are installed
-local ensure_installed = { "bash", "c", "diff", "html", "lua", "luadoc", "markdown", "markdown_inline", "query", "vim", "vimdoc" }
+-- ensure parsers are installed
+local ensure_installed = {
+  "astro",
+  "bash",
+  "c",
+  "desktop",
+  "diff",
+  "git_config",
+  "gitignore",
+  "html",
+  "ini",
+  "javascript",
+  "json",
+  "jsonc",
+  "lua",
+  "luadoc",
+  "markdown",
+  "markdown_inline",
+  "python",
+  "query",
+  "ssh_config",
+  "typescript",
+  "vim",
+  "vimdoc",
+  "yaml",
+}
 Util.on_vim_enter(function()
   require("nvim-treesitter").install(ensure_installed)
 end)
