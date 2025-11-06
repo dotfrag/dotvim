@@ -44,6 +44,7 @@ local ensure_installed = {
   "vim",
   "vimdoc",
   "yaml",
+  "zsh",
 }
 Util.on_vim_enter(function()
   require("nvim-treesitter").install(ensure_installed)
