@@ -61,7 +61,7 @@ require("conform").setup({
     htmldjango = { "djlint" },
     http = { "kulala" },
     python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
-    sql = { "sql_formatter" },
+    -- sql = { "sql_formatter" },
   },
 })
 
