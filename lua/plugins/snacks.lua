@@ -146,6 +146,7 @@ vim.keymap.set("n", "<leader>n", function() Snacks.notifier.show_history() end, 
 vim.keymap.set("n", "<leader>cR", function() Snacks.rename.rename_file() end, { desc = "Rename File" })
 vim.keymap.set({"n","v"}, "<leader>gB", function() Snacks.gitbrowse() end, { desc = "Git Browse" })
 vim.keymap.set("n", "<leader>un", function() Snacks.notifier.hide() end, { desc = "Dismiss All Notifications" })
+vim.keymap.set({"n", "x"}, "<localleader>l", function() Snacks.debug.run() end, { desc = "Run Lua" })
 
 if vim.g.picker == "snacks" then
   local config = vim.fn.stdpath("config")
