@@ -79,6 +79,15 @@ Util.on_vim_enter(function()
   end
 end)
 
+-- Open nvim-pack log
+vim.api.nvim_create_user_command("NvimPackLog", function()
+  vim.cmd.edit(vim.fn.stdpath("state") .. "/nvim-pack.log")
+  vim.cmd.normal("Gzz")
+end, { desc = "Open nvim-pack log file" })
+vim.keymap.set("n", "<localleader>p", function()
+  vim.cmd.NvimPackLog()
+end, { desc = "Open nvim-pack log" })
+
 -- https://www.reddit.com/r/neovim/comments/1mnsj7u/does_nightlys_new_packnvim_have_a_build_stage/
 vim.api.nvim_create_autocmd("PackChanged", {
   group = vim.api.nvim_create_augroup("dotvim_pack-changed", { clear = true }),
