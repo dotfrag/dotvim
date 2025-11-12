@@ -33,6 +33,7 @@ local ensure_installed = {
   "javascript",
   "json",
   "jsonc",
+  "just",
   "lua",
   "luadoc",
   "markdown",
