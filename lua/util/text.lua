@@ -24,7 +24,7 @@ end
 
 function M.comment_line()
   local cs = (require("ts-comments.comments").get(vim.bo.filetype) or vim.bo.commentstring):gsub("%%s", "")
-  local text = vim.api.nvim_get_current_line():gsub("-+ ", ""):gsub(cs, "")
+  local text = vim.trim(vim.api.nvim_get_current_line():gsub("-+ ", ""):gsub(cs, ""))
   -- using `#text - #cs` instead of `#line` for lines without comment
   local dashes = string.rep("-", 80 - #text - #cs - 1)
   vim.api.nvim_set_current_line(cs .. dashes .. " " .. text)
