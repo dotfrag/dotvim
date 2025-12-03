@@ -9,6 +9,7 @@ vim.api.nvim_create_user_command("BlinkBinary", function()
     vim.system({ "cargo", "build", "--release" }, { cwd = plugin_path, text = true }, function(obj)
       if obj.code == 0 then
         vim.notify("blink.cmp: compilation finished", vim.log.levels.INFO)
+        vim.system({ "notify-send", "-t", "2500", "blink.cmp: compilation finished" })
         vim.defer_fn(function()
           vim.cmd.quit()
         end, 2500)
