@@ -46,6 +46,7 @@ end)
 map("n", "<localleader>m", function()
   -- vim.cmd("put =execute('messages')")
   -- vim.api.nvim_buf_set_lines(0, -1, -1, false, vim.split(vim.api.nvim_exec2("messages", { output = true }).output, "\n"))
+  vim.cmd("enew")
   vim.api.nvim_put(vim.split(vim.api.nvim_exec2("messages", { output = true }).output, "\n"), "l", true, true)
 end)
 
