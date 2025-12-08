@@ -10,9 +10,19 @@ vim.api.nvim_create_user_command("BlinkBinary", function()
       if obj.code == 0 then
         vim.notify("blink.cmp: compilation finished", vim.log.levels.INFO)
         vim.system({ "notify-send", "-t", "2500", "blink.cmp: compilation finished" })
-        vim.defer_fn(function()
-          vim.cmd.quit()
-        end, 2500)
+        -- HACK: workaround for init (do not quit before init has finished)
+        local first_compilation_file = vim.fn.stdpath("state") .. "/blink-binary"
+        local first_compilation = not vim.uv.fs_stat(first_compilation_file)
+        if first_compilation then
+          local f = io.open(first_compilation_file, "w")
+          if f ~= nil then
+            f:close()
+          end
+        else
+          vim.defer_fn(function()
+            vim.cmd.quit()
+          end, 2500)
+        end
       else
         vim.notify("blink.cmp: compilation failed", vim.log.levels.ERROR)
         vim.print(obj.stderr)
