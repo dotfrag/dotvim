@@ -154,7 +154,7 @@ map("n", "<leader>rM", function() Util.text.modeline(true) end, { desc = "Append
 -- stylua: ignore end
 
 -- Everything is magic
-local verymagic = true
+local verymagic = false
 if verymagic then
   -- Normal mode search
   vim.keymap.set("n", "/", "/\\v")
