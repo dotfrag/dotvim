@@ -5,7 +5,7 @@ require("treesitter-context").setup()
 ---@param buf integer
 ---@param language string
 local function attach(buf, language)
-  -- check if parser exists before starting highlighter
+  -- check if parser exists and load it
   if not vim.treesitter.language.add(language) then
     return
   end
@@ -50,7 +50,7 @@ Util.on_vim_enter(function()
 end)
 
 local exclude = { "csv", "sql", "toml" }
-local available = require("nvim-treesitter.config").get_available()
+local available = require("nvim-treesitter").get_available()
 vim.api.nvim_create_autocmd("FileType", {
   callback = function(args)
     local buf, filetype = args.buf, args.match
@@ -71,7 +71,6 @@ vim.api.nvim_create_autocmd("FileType", {
       end
     end
 
-    -- automatically install parser for missing languages
     local installed = require("nvim-treesitter").get_installed("parsers")
     if vim.tbl_contains(installed, language) then
       -- parser is already installed -> attach
@@ -81,6 +80,9 @@ vim.api.nvim_create_autocmd("FileType", {
       require("nvim-treesitter").install(language):await(function()
         attach(buf, language)
       end)
+    else
+      -- try to enable treesitter features in case the parser exists but is not available from `nvim-treesitter`
+      attach(buf, language)
     end
   end,
 })
