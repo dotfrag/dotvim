@@ -143,4 +143,6 @@ return {
   },
 
   just = {},
+
+  systemd_lsp = {},
 }
