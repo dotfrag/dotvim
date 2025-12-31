@@ -82,7 +82,7 @@ autocmd("FileType", {
 })
 
 -- Wrap and check for spell in text filetypes
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
   group = augroup("wrap-spell"),
   pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
   callback = function()

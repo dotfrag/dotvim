@@ -133,3 +133,20 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end
   end,
 })
+
+-- Autosave
+autocmd("InsertLeave", {
+  group = augroup("auto-save"),
+  callback = function()
+    if vim.bo.readonly then
+      return
+    end
+    if not vim.bo.modifiable then
+      return
+    end
+    if not vim.bo.modified then
+      return
+    end
+    vim.cmd("write")
+  end,
+})
