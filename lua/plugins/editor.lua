@@ -1,12 +1,16 @@
+require("debugprint").setup({ display_counter = false })
 require("guess-indent").setup({})
+require("neogen").setup({})
 require("nvim-surround").setup()
 require("ts-comments").setup()
 
+-- ------------------------------------------------------------------- autopairs
 if vim.g.pairs == "autopairs" then
   vim.pack.add({ "https://github.com/windwp/nvim-autopairs" })
   require("nvim-autopairs").setup()
 end
 
+-- ----------------------------------------------------------------------- flash
 -- or https://github.com/ggandor/leap.nvim
 ---@type Flash.Config
 require("flash").setup({ modes = { char = { enabled = false } } })
@@ -26,6 +30,7 @@ vim.keymap.set({ "n", "x", "o" }, "<C-Space>", function()
   })
 end, { desc = "Treesitter Incremental Selection" })
 
+-- -------------------------------------------------------------------- undotree
 vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle)
 
 if vim.g.folds == "origami" then
@@ -33,6 +38,7 @@ if vim.g.folds == "origami" then
   require("origami").setup()
 end
 
+-- -------------------------------------------------------------------- recorder
 ---@diagnostic disable-next-line: missing-fields
 require("recorder").setup({
   ---@diagnostic disable-next-line: missing-fields
@@ -41,17 +47,16 @@ require("recorder").setup({
   },
 })
 
+-- -------------------------------------------------------------- rip-substitute
 require("rip-substitute").setup()
 vim.keymap.set({ "n", "x" }, "<localleader>s", function()
   require("rip-substitute").sub()
 end)
 
+-- --------------------------------------------------------------------- abolish
 vim.keymap.set("n", "<localleader>S", ":S/g<Left>", { desc = "Abolish Substitute" })
 
-require("neogen").setup({})
-
-require("debugprint").setup({ display_counter = false })
-
+-- -------------------------------------------------------------------- grug-far
 require("grug-far").setup()
 
 vim.keymap.set({ "n", "x" }, "<leader>sr", function()
