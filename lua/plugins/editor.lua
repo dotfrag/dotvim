@@ -67,3 +67,21 @@ end, { desc = "Search and Replace" })
 vim.keymap.set({ "n", "v" }, "<localleader>r", function()
   require("grug-far").with_visual_selection({ prefills = { paths = vim.fn.expand("%") } })
 end, { desc = "Search and Replace Current File" })
+
+-- ------------------------------------------------------------------- auto-save
+require("auto-save").setup({
+  enabled = false,
+  -- condition = function()
+  --   return vim.b.autosave
+  -- end,
+})
+vim.keymap.set("n", "<leader>ua", "<cmd>ASToggle<CR>")
+
+-- vim.keymap.set("n", "<leader>ua", function()
+--   vim.b.autosave = not vim.b.autosave
+--   if vim.b.autosave then
+--     vim.notify("Disabled Formatting", vim.log.levels.WARN, { title = "Formatting" })
+--   else
+--     vim.notify("Enabled Formatting", vim.log.levels.INFO, { title = "Formatting" })
+--   end
+-- end)
