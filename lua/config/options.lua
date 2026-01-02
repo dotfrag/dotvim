@@ -80,7 +80,7 @@ vim.filetype.add({
     [".*/waybar/config.*"] = "jsonc",
   },
 })
-vim.treesitter.language.register("bash", { "kitty", "zsh" })
+vim.treesitter.language.register("bash", { "kitty" })
 
 -- Neovide options
 if vim.g.neovide then
