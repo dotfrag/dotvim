@@ -2,6 +2,7 @@ vim.pack.add({
   { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
+  -- AUTOSORT: START
   "https://github.com/akinsho/bufferline.nvim",
   "https://github.com/andrewferrier/debugprint.nvim",
   "https://github.com/b0o/SchemaStore.nvim",
@@ -40,6 +41,7 @@ vim.pack.add({
   "https://github.com/tpope/vim-fugitive",
   "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
   -- "https://github.com/kevinhwang91/nvim-bqf",
+  -- AUTOSORT: END
 })
 
 vim.cmd.colorscheme("tokyonight-night")
