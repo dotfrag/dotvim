@@ -30,7 +30,6 @@ local ensure_installed = {
   "ini",
   "javascript",
   "json",
-  "jsonc",
   "just",
   "lua",
   "luadoc",
