@@ -37,6 +37,7 @@ local ensure_installed = {
   "markdown_inline",
   "python",
   "query",
+  "rasi",
   "ssh_config",
   "typescript",
   "vim",
