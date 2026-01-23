@@ -76,17 +76,34 @@ end, { desc = "Search and Replace Current File" })
 -- ------------------------------------------------------------------- auto-save
 require("auto-save").setup({
   enabled = false,
+  debounce_delay = 250,
   -- condition = function()
   --   return vim.b.autosave
   -- end,
 })
 vim.keymap.set("n", "<leader>ua", "<cmd>ASToggle<CR>")
 
+local group = vim.api.nvim_create_augroup("dotvim_autosave", {})
+vim.api.nvim_create_autocmd("User", {
+  pattern = "AutoSaveEnable",
+  group = group,
+  callback = function()
+    vim.notify("Enabled AutoSave", vim.log.levels.INFO, { title = "AutoSave" })
+  end,
+})
+vim.api.nvim_create_autocmd("User", {
+  pattern = "AutoSaveDisable",
+  group = group,
+  callback = function()
+    vim.notify("Disabled AutoSave", vim.log.levels.WARN, { title = "AutoSave" })
+  end,
+})
+
 -- vim.keymap.set("n", "<leader>ua", function()
 --   vim.b.autosave = not vim.b.autosave
 --   if vim.b.autosave then
---     vim.notify("Disabled Formatting", vim.log.levels.WARN, { title = "Formatting" })
+--     vim.notify("Disabled AutoSave", vim.log.levels.WARN, { title = "AutoSave" })
 --   else
---     vim.notify("Enabled Formatting", vim.log.levels.INFO, { title = "Formatting" })
+--     vim.notify("Enabled AutoSave", vim.log.levels.INFO, { title = "AutoSave" })
 --   end
 -- end)
