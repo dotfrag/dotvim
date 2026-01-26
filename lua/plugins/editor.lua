@@ -1,5 +1,4 @@
 require("debugprint").setup({ display_counter = false })
-require("guess-indent").setup({})
 require("neogen").setup({})
 require("nvim-surround").setup()
 require("ts-comments").setup()
