@@ -10,6 +10,23 @@ local diagnostic_icons = {
   [vim.diagnostic.severity.HINT] = "󰌶 ",
 }
 
+-- simple (kickstart)
+local function setup_simple()
+  vim.diagnostic.config({
+    update_in_insert = false,
+    severity_sort = true,
+    float = { border = "rounded", source = "if_many" },
+    underline = { severity = vim.diagnostic.severity.ERROR },
+
+    -- Can switch between these as you prefer
+    virtual_text = true, -- Text shows up at the end of the line
+    virtual_lines = false, -- Text shows up underneath the line, with virtual lines
+
+    -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
+    jump = { float = true },
+  })
+end
+
 -- virtual text only
 local function setup_static()
   vim.diagnostic.config({
@@ -147,7 +164,9 @@ end
 
 ---@param mode 'static'|'dynamic'|'hover'|'tiny'
 function M.setup(mode)
-  if mode == "static" then
+  if mode == "simple" then
+    setup_simple()
+  elseif mode == "static" then
     setup_static()
   elseif mode == "dynamic" then
     setup_dynamic()
