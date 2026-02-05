@@ -5,6 +5,7 @@ vim.pack.add({
   -- AUTOSORT: START
   "https://github.com/akinsho/bufferline.nvim",
   "https://github.com/andrewferrier/debugprint.nvim",
+  "https://github.com/AndrewRadev/linediff.vim",
   "https://github.com/b0o/SchemaStore.nvim",
   "https://github.com/chrisgrieser/nvim-recorder",
   "https://github.com/chrisgrieser/nvim-rip-substitute",
