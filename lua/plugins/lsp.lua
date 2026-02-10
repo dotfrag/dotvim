@@ -53,3 +53,5 @@ require("mason-tool-installer").setup({
   start_delay = 5000,
   debounce_hours = 5,
 })
+
+require("fidget").setup({})

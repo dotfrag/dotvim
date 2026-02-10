@@ -17,6 +17,7 @@ vim.pack.add({
   "https://github.com/folke/tokyonight.nvim",
   "https://github.com/folke/trouble.nvim",
   "https://github.com/folke/ts-comments.nvim",
+  "https://github.com/j-hui/fidget.nvim",
   "https://github.com/kylechui/nvim-surround",
   "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/MagicDuck/grug-far.nvim",
