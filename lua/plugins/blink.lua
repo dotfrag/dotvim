@@ -20,7 +20,7 @@ vim.api.nvim_create_user_command("BlinkBinary", function()
           end
         else
           vim.defer_fn(function()
-            vim.cmd.quit()
+            vim.cmd.quitall()
           end, 2500)
         end
       else
