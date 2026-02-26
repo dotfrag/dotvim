@@ -92,7 +92,7 @@ autocmd("FileType", {
 })
 
 -- Autosort plugins table
-vim.api.nvim_create_autocmd("BufWritePre", {
+autocmd("BufWritePre", {
   group = augroup("autosort-plugins"),
   pattern = "lua/plugins/init.lua",
   callback = function()
