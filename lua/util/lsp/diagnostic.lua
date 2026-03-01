@@ -156,7 +156,7 @@ local function setup_tiny()
   vim.diagnostic.config({
     severity_sort = true,
     float = { source = "if_many" },
-    underline = { severity = vim.diagnostic.severity.ERROR },
+    underline = { severity = { min = vim.diagnostic.severity.WARN } },
     signs = { text = diagnostic_icons },
     virtual_text = false,
   })
