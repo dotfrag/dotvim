@@ -17,18 +17,7 @@ local start_end = augend.constant.new({
 local ordinal_numbers = augend.constant.new({
   -- elements through which we cycle. When we increment, we go down
   -- On decrement we go up
-  elements = {
-    "first",
-    "second",
-    "third",
-    "fourth",
-    "fifth",
-    "sixth",
-    "seventh",
-    "eighth",
-    "ninth",
-    "tenth",
-  },
+  elements = { "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth" },
   -- if true, it only matches strings with word boundary. firstDate wouldn't work for example
   word = false,
   -- do we cycle back and forth (tenth to first on increment, first to tenth on decrement).
@@ -36,44 +25,8 @@ local ordinal_numbers = augend.constant.new({
   cyclic = true,
 })
 
-local weekdays = augend.constant.new({
-  elements = {
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  },
-  word = true,
-  cyclic = true,
-})
-
 local months = augend.constant.new({
-  elements = {
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  },
-  word = true,
-  cyclic = true,
-})
-
-local capitalized_boolean = augend.constant.new({
-  elements = {
-    "True",
-    "False",
-  },
+  elements = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" },
   word = true,
   cyclic = true,
 })
@@ -95,17 +48,19 @@ local opts = {
   },
   groups = {
     default = {
-      augend.integer.alias.decimal, -- nonnegative decimal number (0, 1, 2, 3, ...)
-      augend.integer.alias.decimal_int, -- nonnegative and negative decimal number
-      augend.integer.alias.hex, -- nonnegative hex number  (0x01, 0x1a1f, etc.)
-      augend.date.alias["%Y/%m/%d"], -- date (2022/02/19, etc.)
-      ordinal_numbers,
-      weekdays,
-      months,
-      capitalized_boolean,
-      augend.constant.alias.bool, -- boolean value (true <-> false)
-      logical_alias,
-      start_end,
+      augend.constant.alias.Bool, -- true, false
+      augend.constant.alias.bool, -- True, False
+      augend.constant.alias.en_weekday, -- Mon, Tue, ..., Sat, Sun
+      augend.constant.alias.en_weekday_full, -- Monday, Tuesday, ..., Sunday
+      augend.date.alias["%Y-%m-%d"], -- 1970-01-01
+      augend.date.alias["%Y/%m/%d"], -- 1970/01/01
+      augend.integer.alias.decimal, -- 0, 1, ..., 9, 10, 11, ...
+      augend.integer.alias.decimal_int, -- 0, 314, -1592, ...
+      augend.integer.alias.hex, -- 0x00, 0x3f3f, ...
+      logical_alias, -- &&, ||
+      months, -- January, February, ..., December
+      ordinal_numbers, --  first, second, ..., tenth
+      start_end, -- start, end
     },
     vue = {
       augend.constant.new({ elements = { "let", "const" } }),
