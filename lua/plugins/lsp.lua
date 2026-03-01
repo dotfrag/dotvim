@@ -22,9 +22,7 @@ Util.lsp.attach()
 Util.lsp.diagnostic.setup("tiny")
 
 require("plugins.blink")
-local capabilities = require("blink.cmp").get_lsp_capabilities()
 for server, config in pairs(Util.lsp.servers) do
-  config.capabilities = vim.tbl_deep_extend("force", {}, capabilities, config.capabilities or {})
   vim.lsp.config(server, config)
   -- vim.lsp.enable(server)
 end
