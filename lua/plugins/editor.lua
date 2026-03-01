@@ -80,7 +80,7 @@ require("auto-save").setup({
   --   return vim.b.autosave
   -- end,
 })
-vim.keymap.set("n", "<leader>ua", "<cmd>ASToggle<CR>")
+vim.keymap.set("n", "<leader>ua", "<cmd>ASToggle<cr>")
 
 local group = vim.api.nvim_create_augroup("dotvim_autosave", {})
 vim.api.nvim_create_autocmd("User", {

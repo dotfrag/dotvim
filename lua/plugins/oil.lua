@@ -8,4 +8,4 @@ if vim.fn.argc(-1) == 1 then
   end
 end
 
-vim.keymap.set("n", "<leader>o", ":Oil<CR>")
+vim.keymap.set("n", "<leader>o", ":Oil<cr>")
