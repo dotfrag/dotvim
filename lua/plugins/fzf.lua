@@ -41,7 +41,7 @@ vim.keymap.set("n", "<leader>gb", "<cmd>FzfLua git_branches<cr>", { desc = "Git 
 vim.keymap.set("n", "<leader>gl", "<cmd>FzfLua git_commits<cr>", { desc = "Git Log" })
 vim.keymap.set("n", "<leader>gs", "<cmd>FzfLua git_status<cr>", { desc = "Git Status" })
 vim.keymap.set("n", "<leader>gS", "<cmd>FzfLua git_stash<cr>", { desc = "Git Stash" })
-vim.keymap.set("n", "<leader>gd", "<cmd>FzfLua git_diff<cr>", { desc = "Git Stash" })
+vim.keymap.set("n", "<leader>gd", "<cmd>FzfLua git_diff<cr>", { desc = "Git Diff" })
 vim.keymap.set("n", "<leader>gf", "<cmd>FzfLua git_stash<cr>", { desc = "Git Stash" })
 
 -- LSP
