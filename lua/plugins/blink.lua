@@ -21,7 +21,7 @@ vim.api.nvim_create_user_command("BlinkBinary", function()
         else
           vim.defer_fn(function()
             vim.cmd.quitall()
-          end, 2500)
+          end, 5000)
         end
       else
         vim.notify("blink.cmp: compilation failed", vim.log.levels.ERROR)
