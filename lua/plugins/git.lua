@@ -77,10 +77,10 @@ require("neogit").setup({
     section = { "", "" },
   },
 })
-vim.keymap.set("n", "<leader>gn", "<cmd>Neogit<cr>")
+vim.keymap.set("n", "<leader>gn", "<cmd>Neogit<cr>", { desc = "Neogit" })
 
-vim.keymap.set("n", "<leader>gp", "<cmd>Git pull<cr>")
-vim.keymap.set("n", "<leader>grv", "<cmd>Git remote get-url origin<cr>")
+vim.keymap.set("n", "<leader>gp", "<cmd>Git pull<cr>", { desc = "Git Pull" })
+vim.keymap.set("n", "<leader>grv", "<cmd>Git remote get-url origin<cr>", { desc = "Git Remote" })
 
 -- {
 --   "NeogitOrg/neogit",
