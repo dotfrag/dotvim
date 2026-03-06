@@ -3,6 +3,9 @@ require("neogen").setup({})
 require("nvim-surround").setup()
 require("ts-comments").setup()
 
+-- nvim-surround highlight # https://github.com/kylechui/nvim-surround/discussions/433
+vim.api.nvim_set_hl(0, "NvimSurroundHighlight", { link = "IncSearch", default = true, force = true })
+
 -- ------------------------------------------------------------------- autopairs
 if vim.g.pairs == "autopairs" then
   vim.pack.add({ "https://github.com/windwp/nvim-autopairs" })
