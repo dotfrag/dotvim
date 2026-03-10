@@ -10,7 +10,7 @@ require("conform").setup({
   -- https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#autoformat-with-extra-features
   format_on_save = function(bufnr)
     -- Disable autoformat on certain filetypes
-    local ignore_filetypes = { "zsh" }
+    local ignore_filetypes = {}
     if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
       return
     end
