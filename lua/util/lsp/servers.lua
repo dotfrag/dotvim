@@ -91,7 +91,28 @@ return {
   },
   emmet_language_server = {},
 
-  vtsls = {},
+  -- vtsls = {},
+  tsgo = {
+    settings = {
+      typescript = {
+        inlayHints = {
+          parameterNames = {
+            enabled = "literals",
+            suppressWhenArgumentMatchesName = true,
+          },
+          parameterTypes = { enabled = true },
+          variableTypes = { enabled = true },
+          propertyDeclarationTypes = { enabled = true },
+          functionLikeReturnTypes = { enabled = true },
+          enumMemberValues = { enabled = true },
+        },
+      },
+    },
+    keys = {
+      { "<leader>cu", "source.removeUnused.ts", "Remove Unused Imports" },
+      { "<leader>cA", "source.fixAll.ts", "Fix All Diagnostics" },
+    },
+  },
 
   taplo = {},
 
