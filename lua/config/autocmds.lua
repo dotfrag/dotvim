@@ -16,7 +16,6 @@ autocmd("FileType", {
     "gitsigns-blame",
     "grug-far",
     "help",
-    "lspinfo",
     "nvim-pack",
     "qf",
   },

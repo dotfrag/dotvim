@@ -30,8 +30,8 @@ end
 local lsp_servers = vim.tbl_keys(Util.lsp.servers)
 vim.lsp.enable(lsp_servers)
 
-vim.keymap.set("n", "<leader>cl", vim.cmd.LspInfo)
-vim.keymap.set("n", "<leader>cm", vim.cmd.Mason)
+vim.keymap.set("n", "<leader>cl", "<cmd>checkhealth vim.lsp<cr>")
+vim.keymap.set("n", "<leader>cm", "<cmd>Mason<cr>")
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
 
 require("lazydev").setup({
