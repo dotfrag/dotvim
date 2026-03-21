@@ -79,7 +79,13 @@ require("neogit").setup({
 })
 vim.keymap.set("n", "<leader>gn", "<cmd>Neogit<cr>", { desc = "Neogit" })
 
-vim.keymap.set("n", "<leader>gp", "<cmd>Git pull<cr>", { desc = "Git Pull" })
+vim.keymap.set("n", "<leader>gp", function()
+  local cwd = vim.fn.getcwd()
+  if cwd == vim.env.HOME then
+    vim.fn.chdir(vim.fn.stdpath("config"))
+  end
+  vim.cmd("Git pull")
+end, { desc = "Git Pull" })
 vim.keymap.set("n", "<leader>grv", "<cmd>Git remote get-url origin<cr>", { desc = "Git Remote" })
 
 -- {
