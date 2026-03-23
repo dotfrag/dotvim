@@ -72,10 +72,19 @@ vim.keymap.set({ "n", "x" }, "<leader>cf", function()
 end)
 
 vim.keymap.set("n", "<leader>uf", function()
+  vim.b.disable_autoformat = not vim.b.disable_autoformat
+  if vim.b.disable_autoformat then
+    vim.notify("Disabled Buffer Formatting", vim.log.levels.WARN, { title = "Formatting" })
+  else
+    vim.notify("Enabled Buffer Formatting", vim.log.levels.INFO, { title = "Formatting" })
+  end
+end)
+
+vim.keymap.set("n", "<leader>uF", function()
   vim.g.disable_autoformat = not vim.g.disable_autoformat
   if vim.g.disable_autoformat then
-    vim.notify("Disabled Formatting", vim.log.levels.WARN, { title = "Formatting" })
+    vim.notify("Disabled Global Formatting", vim.log.levels.WARN, { title = "Formatting" })
   else
-    vim.notify("Enabled Formatting", vim.log.levels.INFO, { title = "Formatting" })
+    vim.notify("Enabled Global Formatting", vim.log.levels.INFO, { title = "Formatting" })
   end
 end)
