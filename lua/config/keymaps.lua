@@ -46,8 +46,13 @@ end)
 map("n", "<localleader>m", function()
   -- vim.cmd("put =execute('messages')")
   -- vim.api.nvim_buf_set_lines(0, -1, -1, false, vim.split(vim.api.nvim_exec2("messages", { output = true }).output, "\n"))
+  -- vim.api.nvim_put(vim.split(vim.api.nvim_exec2("messages", { output = true }).output, "\n"), "l", true, true)
   vim.cmd("enew")
-  vim.api.nvim_put(vim.split(vim.api.nvim_exec2("messages", { output = true }).output, "\n"), "l", true, true)
+  vim.bo.buftype = "nofile"
+  vim.bo.bufhidden = "wipe"
+  vim.bo.swapfile = false
+  local lines = vim.split(vim.api.nvim_exec2("messages", { output = true }).output, "\n", { trimempty = true })
+  vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
 end)
 
 -- Clear search, diff update and redraw
