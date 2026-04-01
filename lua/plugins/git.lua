@@ -15,7 +15,7 @@ require("gitsigns").setup({
   --   changedelete = { text = "▎" },
   -- },
   on_attach = function(buffer)
-    local gs = package.loaded.gitsigns
+    local gs = require("gitsigns")
 
     local function map(mode, l, r, desc)
       vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
@@ -39,29 +39,50 @@ require("gitsigns").setup({
     end, "Prev Hunk")
 
     -- stylua: ignore start
+
+    -- Navigation
     map("n", "]C", function() gs.nav_hunk("last") end, "Last Hunk")
     map("n", "[C", function() gs.nav_hunk("first") end, "First Hunk")
     map("n", "]h", function() gs.nav_hunk("next") end, "Next Hunk")
     map("n", "[h", function() gs.nav_hunk("prev") end, "Prev Hunk")
     map("n", "]H", function() gs.nav_hunk("last") end, "Last Hunk")
     map("n", "[H", function() gs.nav_hunk("first") end, "First Hunk")
-    map({ "n", "x" }, "<leader>hs", ":Gitsigns stage_hunk<cr>", "Stage Hunk")
-    map({ "n", "x" }, "<leader>hr", ":Gitsigns reset_hunk<cr>", "Reset Hunk")
+
+    -- Stage/Rest Hunks
+    map("n", "<leader>hs", gs.stage_hunk, "Stage Hunk")
+    map("n", "<leader>hr", gs.reset_hunk, "Reset Hunk")
+    map("v", "<leader>hs", function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, "Stage Hunk")
+    map("v", "<leader>hr", function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, "Reset Hunk")
+
+    -- Stage/Reset Buffer
     map("n", "<leader>hS", gs.stage_buffer, "Stage Buffer")
     map("n", "<leader>hR", gs.reset_buffer, "Reset Buffer")
+
+    -- Preview Hunks
     map("n", "<leader>hp", gs.preview_hunk, "Preview Hunk")
     map("n", "<leader>hi", gs.preview_hunk_inline, "Preview Hunk Inline")
+
+    -- Blame
     map("n", "<leader>hb", function() gs.blame_line({ full = true }) end, "Blame Line")
     map("n", "<leader>hB", function() gs.blame() end, "Blame File")
+
+    -- Diff
     map("n", "<leader>hd", gs.diffthis, "Diff This")
     map("n", "<leader>hD", function() gs.diffthis("~") end, "Diff This ~")
-    map("n", "<leader>hQ", function() gs.setqflist("all") end, "Quickfix Hunks All")
+
+    -- Quickfix
     map("n", "<leader>hq", gs.setqflist, "Quickfix Hunks Buffer")
+    map("n", "<leader>hQ", function() gs.setqflist("all") end, "Quickfix Hunks All")
+
+    -- Toggles
+    map("n", "<leader>tb", gs.toggle_current_line_blame, "Current Line Blame")
     map("n", "<leader>htb", gs.toggle_current_line_blame, "Current Line Blame")
-    map("n", "<leader>htd", gs.toggle_deleted, "Deleted Lines")
+    map("n", "<leader>tw", gs.toggle_word_diff, "Word Diff")
     map("n", "<leader>htw", gs.toggle_word_diff, "Word Diff")
-    map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<cr>", "GitSigns Select Hunk")
     map("n", "<leader>uG", function() require("gitsigns").toggle_signs() end, "Git Signs")
+
+    -- Text Object
+    map({ "o", "x" }, "ih", gs.select_hunk, "Select Hunk")
   end,
 })
 
