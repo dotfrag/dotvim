@@ -50,11 +50,14 @@ require("conform").setup({
     markdown = { vim.g.prettier_tool },
     ["markdown.mdx"] = { "prettierd" },
 
-    -- biome
-    javascript = { "biome-check" },
-    typescript = { "biome-check" },
-    json = { "biome-check" },
-    jsonc = { "biome-check" },
+    -- oxfmt
+    javascript = { "oxfmt" },
+    typescript = { "oxfmt" },
+    json = { "oxfmt" },
+    jsonc = { "oxfmt" },
+    vue = { "oxfmt" },
+    svelte = { "oxfmt" },
+    astro = { "oxfmt" },
 
     -- other
     -- go = { "goimports", "gofumpt" },
