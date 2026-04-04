@@ -113,6 +113,12 @@ return {
       { "<leader>cA", "source.fixAll.ts", "Fix All Diagnostics" },
     },
   },
+  oxlint = {
+    settings = {
+      fixKind = "all",
+    },
+  },
+  oxfmt = { enabled = false },
 
   taplo = {},
 
