@@ -32,6 +32,7 @@ vim.pack.add({
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/nvim-mini/mini.nvim",
   "https://github.com/nvim-treesitter/nvim-treesitter-context",
+  "https://github.com/nvim-zh/colorful-winsep.nvim",
   "https://github.com/okuuva/auto-save.nvim",
   "https://github.com/rachartier/tiny-inline-diagnostic.nvim",
   "https://github.com/saghen/blink.cmp",

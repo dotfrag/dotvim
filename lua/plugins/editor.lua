@@ -109,3 +109,19 @@ vim.api.nvim_create_autocmd("User", {
 --     vim.notify("Enabled AutoSave", vim.log.levels.INFO, { title = "AutoSave" })
 --   end
 -- end)
+
+-- ------------------------------------------------------------- colorful-winsep
+require("colorful-winsep").setup({
+  indicator_for_2wins = {
+    symbols = {
+      start_left = "",
+      end_left = "",
+      start_down = "",
+      end_down = "",
+      start_up = "",
+      end_up = "",
+      start_right = "",
+      end_right = "",
+    },
+  },
+})
