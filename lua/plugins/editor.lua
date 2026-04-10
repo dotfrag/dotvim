@@ -113,6 +113,9 @@ vim.api.nvim_create_autocmd("User", {
 -- ------------------------------------------------------------- colorful-winsep
 require("colorful-winsep").setup({
   indicator_for_2wins = {
+    animate = {
+      enabled = false,
+    },
     symbols = {
       start_left = "",
       end_left = "",
