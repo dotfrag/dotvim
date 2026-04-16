@@ -41,16 +41,14 @@ require("conform").setup({
     sh = { "shfmt", "shellcheck" },
     zsh = { "shfmt", "shellcheck" },
 
-    -- prettier
-    html = { vim.g.prettier_tool },
-    css = { vim.g.prettier_tool },
-    scss = { vim.g.prettier_tool },
-    less = { vim.g.prettier_tool },
-    yaml = { vim.g.prettier_tool },
-    markdown = { vim.g.prettier_tool },
-    ["markdown.mdx"] = { "prettierd" },
-
-    -- oxfmt
+    -- web
+    html = { "oxfmt" },
+    css = { "oxfmt" },
+    scss = { "oxfmt" },
+    less = { "oxfmt" },
+    yaml = { "oxfmt" },
+    markdown = { "oxfmt" },
+    ["markdown.mdx"] = { "oxfmt" },
     javascript = { "oxfmt" },
     typescript = { "oxfmt" },
     json = { "oxfmt" },
