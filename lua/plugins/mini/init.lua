@@ -11,6 +11,15 @@ vim.keymap.set("n", "<leader>cj", function()
   require("mini.splitjoin").toggle()
 end)
 
+require("mini.hipatterns").setup({
+  highlighters = {
+    fixme = { pattern = "FIXME", group = "MiniHipatternsFixme" },
+    hack = { pattern = "HACK", group = "MiniHipatternsHack" },
+    note = { pattern = "NOTE", group = "MiniHipatternsNote" },
+    todo = { pattern = "TODO", group = "MiniHipatternsTodo" },
+  },
+})
+
 -- -- Bufremove
 -- require("mini.bufremove").setup()
 -- vim.keymap.set("n", "<leader>d", function()
