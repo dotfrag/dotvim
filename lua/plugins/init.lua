@@ -1,5 +1,6 @@
 vim.pack.add({
   { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+  { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
   -- AUTOSORT: START
   "https://github.com/akinsho/bufferline.nvim",
@@ -35,7 +36,7 @@ vim.pack.add({
   "https://github.com/nvim-zh/colorful-winsep.nvim",
   "https://github.com/okuuva/auto-save.nvim",
   "https://github.com/rachartier/tiny-inline-diagnostic.nvim",
-  "https://github.com/saghen/blink.cmp",
+  "https://github.com/saghen/blink.lib",
   "https://github.com/sindrets/diffview.nvim",
   "https://github.com/stevearc/conform.nvim",
   "https://github.com/stevearc/oil.nvim",

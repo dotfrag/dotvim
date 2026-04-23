@@ -53,9 +53,13 @@ if not vim.uv.fs_stat(binary_path) then
   vim.cmd.BlinkBinary()
 end
 
+-- vim.pack.add({ "saghen/blink.lib", "saghen/blink.cmp" })
+-- local cmp = require("blink.cmp")
+-- cmp.build():wait(60000)
+
 ---@module 'blink.cmp'
 ---@type blink.cmp.Config
-require("blink-cmp").setup({
+require("blink.cmp").setup({
   -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
   -- 'super-tab' for mappings similar to vscode (tab to accept)
   -- 'enter' for enter to accept
