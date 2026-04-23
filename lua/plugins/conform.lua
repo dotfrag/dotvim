@@ -24,7 +24,7 @@ require("conform").setup({
       return
     end
     -- ...additional logic...
-    return { timeout_ms = 500, lsp_format = "fallback" }
+    return { timeout_ms = 1000, lsp_format = "fallback" }
   end,
   formatters = {
     shfmt = { prepend_args = { "--simplify", "--indent", "2", "--binary-next-line", "--case-indent", "--space-redirects" } },
