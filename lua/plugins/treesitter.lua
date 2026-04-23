@@ -16,6 +16,15 @@ local function attach(buf, language)
   -- vim.wo.foldmethod = "expr"
 
   -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+  -- check if treesitter indentation is available for this language, and if so enable it
+  -- in case there is no indent query, the indentexpr will fallback to the vim's built in one
+  local has_indent_query = vim.treesitter.query.get(language, "indents") ~= nil
+
+  -- enables treesitter based indentation
+  if has_indent_query then
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end
 end
 
 -- ensure parsers are installed
