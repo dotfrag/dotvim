@@ -1,65 +1,9 @@
-local plugin_path = vim.fn.stdpath("data") .. "/site/pack/core/opt/blink.cmp"
-local binary_dir = plugin_path .. "/target/release"
-local binary_path = binary_dir .. "/libblink_cmp_fuzzy.so"
-local compile = true
-
-vim.api.nvim_create_user_command("BlinkBinary", function()
-  if compile then
-    vim.notify("blink.cmp: compiling binary", vim.log.levels.INFO)
-    vim.system({ "cargo", "build", "--release" }, { cwd = plugin_path, text = true }, function(obj)
-      if obj.code == 0 then
-        vim.notify("blink.cmp: compilation finished", vim.log.levels.INFO)
-        vim.system({ "notify-send", "-t", "2500", "blink.cmp: compilation finished" })
-        -- HACK: workaround for init (do not quit before init has finished)
-        local first_compilation_file = vim.fn.stdpath("state") .. "/blink-binary"
-        local first_compilation = not vim.uv.fs_stat(first_compilation_file)
-        if first_compilation then
-          local f = io.open(first_compilation_file, "w")
-          if f ~= nil then
-            f:close()
-          end
-        else
-          vim.defer_fn(function()
-            vim.cmd.quitall()
-          end, 5000)
-        end
-      else
-        vim.notify("blink.cmp: compilation failed", vim.log.levels.ERROR)
-        vim.print(obj.stderr)
-      end
-    end)
-  else
-    vim.notify("blink.cmp: downloading pre-built binary", vim.log.levels.INFO)
-    vim.fn.mkdir(binary_dir, "p")
-    vim.system({
-      "wget",
-      "-O",
-      binary_path,
-      "https://github.com/Saghen/blink.cmp/releases/latest/download/x86_64-unknown-linux-gnu.so",
-    }, { text = true }, function(obj)
-      -- vim.schedule(function()
-      if obj.code == 0 then
-        vim.notify("blink.cmp: downloading complete", vim.log.levels.INFO)
-      else
-        vim.notify("blink.cmp: downloading failed", vim.log.levels.ERROR)
-        vim.print(obj.stderr)
-      end
-      -- end)
-    end)
-  end
-end, { desc = "Download latest blink pre-built binary" })
-
-if not vim.uv.fs_stat(binary_path) then
-  vim.cmd.BlinkBinary()
-end
-
--- vim.pack.add({ "saghen/blink.lib", "saghen/blink.cmp" })
--- local cmp = require("blink.cmp")
--- cmp.build():wait(60000)
+local cmp = require("blink.cmp")
+cmp.build():wait(60000)
 
 ---@module 'blink.cmp'
 ---@type blink.cmp.Config
-require("blink.cmp").setup({
+cmp.setup({
   -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
   -- 'super-tab' for mappings similar to vscode (tab to accept)
   -- 'enter' for enter to accept
@@ -124,4 +68,7 @@ require("blink.cmp").setup({
     --   show_documentation = true,
     -- },
   },
+
+  -- Rust fuzzy matcher for typo resistance and significantly better performance
+  fuzzy = { implementation = "rust" },
 })

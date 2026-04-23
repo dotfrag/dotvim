@@ -1,6 +1,6 @@
 vim.pack.add({
   { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
-  { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") },
+  { src = "https://github.com/saghen/blink.cmp" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
   -- AUTOSORT: START
   "https://github.com/akinsho/bufferline.nvim",
@@ -109,11 +109,6 @@ vim.api.nvim_create_autocmd("PackChanged", {
       vim.notify("nvim-treesitter was updated, running :TSUpdate", vim.log.levels.INFO)
       vim.schedule(function()
         vim.cmd.TSUpdate()
-      end)
-    elseif data.spec.name == "blink.cmp" then
-      vim.notify("blink.cmp was updated, running :BlinkBinary", vim.log.levels.INFO)
-      vim.schedule(function()
-        vim.cmd.BlinkBinary()
       end)
     end
   end,
