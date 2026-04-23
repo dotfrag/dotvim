@@ -1,4 +1,3 @@
-require("debugprint").setup({ display_counter = false })
 require("neogen").setup({})
 require("nvim-surround").setup()
 require("ts-comments").setup()
@@ -125,6 +124,16 @@ require("colorful-winsep").setup({
       end_up = "",
       start_right = "",
       end_right = "",
+    },
+  },
+})
+
+-- ------------------------------------------------------------------ debugprint
+require("debugprint").setup({
+  display_counter = false,
+  filetypes = {
+    ["sh"] = {
+      location = '$(basename "$0"):${LINENO}',
     },
   },
 })
