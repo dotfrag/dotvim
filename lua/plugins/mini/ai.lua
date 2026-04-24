@@ -1,7 +1,6 @@
 local ai = require("mini.ai")
 local gen_ai_spec = require("mini.extra").gen_ai_spec
 require("mini.ai").setup({
-  n_lines = 500,
   custom_textobjects = {
     o = ai.gen_spec.treesitter({ -- code block
       a = { "@block.outer", "@conditional.outer", "@loop.outer" },
@@ -22,4 +21,6 @@ require("mini.ai").setup({
     u = ai.gen_spec.function_call(), -- u for "Usage"
     U = ai.gen_spec.function_call({ name_pattern = "[%w_]" }), -- without dot in function name
   },
+  n_lines = 500,
+  search_method = "cover_or_nearest",
 })
