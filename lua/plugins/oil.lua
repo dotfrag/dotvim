@@ -1,4 +1,10 @@
-require("oil").setup()
+require("oil").setup({
+  keymaps = {
+    ["<C-s>"] = function()
+      require("oil").save()
+    end,
+  },
+})
 
 if vim.fn.argc(-1) == 1 then
   ---@diagnostic disable-next-line: param-type-mismatch
