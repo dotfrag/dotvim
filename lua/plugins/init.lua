@@ -110,6 +110,11 @@ vim.api.nvim_create_autocmd("PackChanged", {
       vim.schedule(function()
         vim.cmd.TSUpdate()
       end)
+    elseif data.spec.name == "blink.cmp" then
+      vim.notify("blink.cmp was updated, building", vim.log.levels.INFO)
+      vim.schedule(function()
+        require("blink.cmp").build():wait(60000)
+      end)
     end
   end,
 })
