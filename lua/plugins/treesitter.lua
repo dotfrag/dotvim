@@ -35,6 +35,7 @@ local ensure_installed = {
   "desktop",
   "diff",
   "git_config",
+  "gitcommit",
   "gitignore",
   "html",
   "ini",
