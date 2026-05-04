@@ -1,10 +1,14 @@
 {
-	"shellcheck_ignore": {
-		"prefix": "shellcheck",
-		"body": ["# shellcheck disable=SC"]
-	},
-	"println": {
-		"prefix": "println",
-		"body": ["printf '=%.0s' \\$(seq 1 \"\\${COLUMNS}\")"]
-	}
+  "safe": {
+    "prefix": "safe",
+    "body": ["set -euo pipefail"]
+  },
+  "shellcheck_ignore": {
+    "prefix": "shellcheck",
+    "body": ["# shellcheck disable=SC"]
+  },
+  "println": {
+    "prefix": "println",
+    "body": ["printf '=%.0s' \\$(seq 1 \"\\${COLUMNS}\")"]
+  }
 }
