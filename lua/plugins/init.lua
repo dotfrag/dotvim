@@ -100,17 +100,19 @@ vim.api.nvim_create_autocmd("PackChanged", {
   group = vim.api.nvim_create_augroup("dotvim_pack-changed", { clear = true }),
   callback = function(ev)
     local data = ev.data
+    local name = data.spec.name
+    local kind = data.kind
     -- vim.print(data)
-    if data.kind == "delete" then
+    if kind == "delete" then
       return
     end
 
-    if data.spec.name == "nvim-treesitter" then
+    if name == "nvim-treesitter" then
       vim.notify("nvim-treesitter was updated, running :TSUpdate", vim.log.levels.INFO)
       vim.schedule(function()
         vim.cmd.TSUpdate()
       end)
-    elseif data.spec.name == "blink.cmp" then
+    elseif name == "blink.cmp" then
       vim.notify("blink.cmp was updated, building", vim.log.levels.INFO)
       vim.schedule(function()
         ---@diagnostic disable-next-line: undefined-field
