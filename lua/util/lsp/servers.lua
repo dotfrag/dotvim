@@ -21,6 +21,9 @@ return {
   bashls = {},
 
   gopls = {
+    init_options = {
+      semanticTokens = true,
+    },
     settings = {
       gopls = {
         gofumpt = true,
@@ -53,7 +56,6 @@ return {
         completeUnimported = true,
         staticcheck = true,
         directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
-        semanticTokens = true,
       },
     },
     -- workaround for gopls not supporting semanticTokensProvider
