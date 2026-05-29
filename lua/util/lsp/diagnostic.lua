@@ -23,7 +23,15 @@ local function setup_simple()
     virtual_lines = false, -- Text shows up underneath the line, with virtual lines
 
     -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
-    jump = { float = true },
+    jump = {
+      on_jump = function(_, bufnr)
+        vim.diagnostic.open_float({
+          bufnr = bufnr,
+          scope = "cursor",
+          focus = false,
+        })
+      end,
+    },
   })
 end
 
@@ -181,7 +189,15 @@ function M.setup(mode)
       vim.diagnostic.jump({
         count = (next and 1 or -1) * vim.v.count1,
         severity = severity and vim.diagnostic.severity[severity] or nil,
-        float = true,
+        jump = {
+          on_jump = function(_, bufnr)
+            vim.diagnostic.open_float({
+              bufnr = bufnr,
+              scope = "cursor",
+              focus = false,
+            })
+          end,
+        },
       })
     end
   end
