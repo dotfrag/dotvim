@@ -1,5 +1,5 @@
 local cmp = require("blink.cmp")
-cmp.build():wait(60000)
+cmp.build():pwait()
 
 ---@module 'blink.cmp'
 ---@type blink.cmp.Config

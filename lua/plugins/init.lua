@@ -116,7 +116,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
       vim.notify("blink.cmp was updated, building", vim.log.levels.INFO)
       vim.schedule(function()
         ---@diagnostic disable-next-line: undefined-field
-        require("blink.cmp").build():wait(60000)
+        require("blink.cmp").build():pwait()
       end)
     end
   end,
