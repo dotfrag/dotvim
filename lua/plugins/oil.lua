@@ -3,6 +3,9 @@ require("oil").setup({
     ["<C-s>"] = function()
       require("oil").save()
     end,
+    ["gd"] = function()
+      require("oil").set_columns({ "icon", "permissions", "size", "mtime" })
+    end,
   },
 })
 
