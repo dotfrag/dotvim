@@ -51,6 +51,17 @@ autocmd("BufEnter", {
   end,
 })
 
+-- Disable diagnostic for some files
+autocmd("BufEnter", {
+  group = augroup("disable-diagnostic"),
+  pattern = {
+    "*/kitty/*.session",
+  },
+  callback = function()
+    vim.diagnostic.enable(false)
+  end,
+})
+
 -- Resize splits when window is resized
 autocmd("VimResized", {
   group = augroup("resize-splits"),
