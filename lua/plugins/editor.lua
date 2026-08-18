@@ -55,7 +55,7 @@ vim.keymap.set({ "n", "x" }, "<localleader>s", function()
 end)
 
 -- --------------------------------------------------------------------- abolish
-vim.keymap.set("n", "<localleader>S", ":S/g<Left>", { desc = "Abolish Substitute" })
+vim.keymap.set("n", "<localleader>S", ":%S/g<Left>", { desc = "Abolish Substitute" })
 
 -- -------------------------------------------------------------------- grug-far
 require("grug-far").setup()
