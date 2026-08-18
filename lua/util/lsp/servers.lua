@@ -94,7 +94,7 @@ return {
   emmet_language_server = {},
 
   -- vtsls = {},
-  tsgo = {
+  tsc = {
     settings = {
       typescript = {
         inlayHints = {
