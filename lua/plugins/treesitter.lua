@@ -6,10 +6,17 @@ local auto_install = true
 ---@param buf integer
 ---@param language string
 local function attach(buf, language)
-  -- check if parser exists and load it
+  -- check if a parser exists and load it
   if not vim.treesitter.language.add(language) then
     return
   end
+
+  -- check if the buffer is valid (might not be after install completes)
+  if not vim.api.nvim_buf_is_valid(buf) then
+    return
+  end
+
+  -- enable syntax highlighting and other treesitter features
   vim.treesitter.start(buf, language)
 
   -- vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
