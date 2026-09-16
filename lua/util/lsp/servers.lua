@@ -96,7 +96,7 @@ return {
   -- vtsls = {},
   tsc = {
     settings = {
-      typescript = {
+      ["js/ts"] = {
         inlayHints = {
           enumMemberValues = { enabled = true },
           functionLikeReturnTypes = { enabled = false },
@@ -120,6 +120,7 @@ return {
       fixKind = "all",
     },
   },
+  -- disable the oxfmt lsp server since we use conform for formatting
   oxfmt = { enabled = false },
 
   taplo = {},
