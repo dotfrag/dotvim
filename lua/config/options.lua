@@ -18,6 +18,7 @@ vim.schedule(function()
   -- opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 end)
 
+-- o.cmdheight = 0 -- Number of screen lines to use for the command-line.  Helps avoiding hit-enter prompts
 -- o.laststatus = 3 -- Global statusline
 o.autowrite = true -- Enable auto write
 o.breakindent = true -- Visually indent wrapped lines
@@ -57,6 +58,11 @@ o.winborder = "single" -- Border style of floating windows
 o.wrap = false -- Disable line wrap
 vim.opt.diffopt:append("iwhite") -- Ignore whitespace in diff mode
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" } -- Strings to use in list mode
+
+-- UI2
+-- WARNING: This is an experimental feature intended to replace the builtin
+-- message + cmdline presentation layer.
+require("vim._core.ui2").enable()
 
 -- Fold settings
 if vim.g.folds == "origami" then
