@@ -1,5 +1,6 @@
 local mason_packages = {
   "djlint", -- django
+  "dockerfmt", -- dockerfile
   "kulala-fmt", -- http
   "shellcheck", -- bash
   "shfmt", -- bash

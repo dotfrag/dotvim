@@ -59,10 +59,11 @@ require("conform").setup({
 
     -- other
     -- go = { "goimports", "gofumpt" },
+    -- sql = { "sql_formatter" },
+    dockerfile = { "dockerfmt" },
     htmldjango = { "djlint" },
     http = { "kulala" },
     python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
-    -- sql = { "sql_formatter" },
   },
 })
 
