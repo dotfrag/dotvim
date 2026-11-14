@@ -10,6 +10,7 @@ vim.pack.add({
   "https://github.com/chrisgrieser/nvim-recorder",
   "https://github.com/chrisgrieser/nvim-rip-substitute",
   "https://github.com/danymat/neogen",
+  "https://github.com/dmtrKovalenko/fff",
   "https://github.com/folke/flash.nvim",
   "https://github.com/folke/lazydev.nvim",
   "https://github.com/folke/persistence.nvim",
@@ -72,6 +73,7 @@ local plugins_lazy = {
   "git",
   "dial",
   "fzf",
+  "fff",
   "neo-tree",
   "trouble",
 }
@@ -118,6 +120,11 @@ vim.api.nvim_create_autocmd("PackChanged", {
         ---@diagnostic disable-next-line: undefined-field
         require("blink.cmp").build():pwait()
       end)
+    elseif name == "fff" then
+      if not ev.data.active then
+        vim.cmd.packadd("fff")
+      end
+      require("fff.download").download_or_build_binary()
     end
   end,
 })

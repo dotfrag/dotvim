@@ -27,11 +27,13 @@ require("snacks").setup({
       -- stylua: ignore
       ---@type snacks.dashboard.Item[]
       keys = {
-        { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+        -- { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+        { icon = " ", key = "f", desc = "Find File", action = ":lua require('fff').find_files()" },
         { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
         { icon = " ", key = "p", desc = "Projects", action = ":lua Snacks.picker.projects()" },
         { icon = " ", key = "e", desc = "Explorer", action = ":lua Snacks.explorer()" },
-        { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('grep')" },
+        -- { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('grep')" },
+        { icon = " ", key = "g", desc = "Find Text", action = ":lua require('fff').live_grep()" },
         { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
         { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
         { icon = " ", key = "C", desc = "Config (grep)", action = ":lua Snacks.dashboard.pick('grep', {cwd = vim.fn.stdpath('config')})" },
@@ -170,7 +172,7 @@ if vim.g.picker == "snacks" then
   vim.keymap.set("n", "<leader>fC", function() Snacks.picker.grep({ cwd = config }) end, { desc = "Config Files (Grep)" })
   vim.keymap.set("n", "<leader>fd", function() Snacks.picker.files({ dirs = dotfiles, hidden = true }) end, { desc = "Dotfiles" })
   vim.keymap.set("n", "<leader>fD", function() Snacks.picker.grep({ dirs = dotfiles, hidden = true }) end, { desc = "Dotfiles (Grep)" })
-  vim.keymap.set("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Files" })
+  -- vim.keymap.set("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Files" })
   vim.keymap.set("n", "<leader>fg", function() Snacks.picker.git_files() end, { desc = "Git Files" })
   vim.keymap.set("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "Recent" })
 
@@ -202,8 +204,10 @@ if vim.g.picker == "snacks" then
   vim.keymap.set("n", "<leader>sC", function() Snacks.picker.commands() end, { desc = "Commands" })
   vim.keymap.set("n", "<leader>sd", function() Snacks.picker.diagnostics() end, { desc = "Diagnostics" })
   vim.keymap.set("n", "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, { desc = "Buffer Diagnostics" })
-  vim.keymap.set("n", "<leader>sf", function() Snacks.picker.files() end, { desc = "Files" })
-  vim.keymap.set("n", "<leader>sg", function() Snacks.picker.grep() end, { desc = "Grep" })
+  -- vim.keymap.set("n", "<leader>sf", function() Snacks.picker.files() end, { desc = "Files" })
+  vim.keymap.set("n", "<leader>sf", function() require('fff').find_files() end, { desc = "Files" })
+  -- vim.keymap.set("n", "<leader>sg", function() Snacks.picker.grep() end, { desc = "Grep" })
+  vim.keymap.set("n", "<leader>sg", function() require('fff').live_grep() end, { desc = "Grep" })
   vim.keymap.set("n", "<leader>sh", function() Snacks.picker.help() end, { desc = "Help Pages" })
   vim.keymap.set("n", "<leader>sH", function() Snacks.picker.highlights() end, { desc = "Highlights" })
   vim.keymap.set("n", "<leader>sj", function() Snacks.picker.jumps() end, { desc = "Jumps" })
@@ -215,7 +219,8 @@ if vim.g.picker == "snacks" then
   vim.keymap.set("n", "<leader>sP", function() Snacks.picker.grep({ cwd = plugins }) end, { desc = "Plugin Files (Grep)" })
   vim.keymap.set("n", "<leader>sq", function() Snacks.picker.qflist() end, { desc = "Quickfix List" })
   vim.keymap.set("n", '<leader>s"', function() Snacks.picker.registers() end, { desc = "Registers" })
-  vim.keymap.set({"n",'x'}, "<leader>sw", function() Snacks.picker.grep_word() end, { desc = "Visual Selection or Word"  })
+  -- vim.keymap.set({"n",'x'}, "<leader>sw", function() Snacks.picker.grep_word() end, { desc = "Visual Selection or Word"  })
+  vim.keymap.set({"n",'x'}, "<leader>sw", function() require('fff').live_grep_under_cursor() end, { desc = "Visual Selection or Word"  })
 end
 
 -- not available in other pickers:
