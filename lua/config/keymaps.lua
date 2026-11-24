@@ -39,7 +39,8 @@ map("i", "AA", "<C-o>A")
 
 -- Comment and duplicate current line
 map("n", "<localleader>d", function()
-  vim.cmd.normal("yygccp")
+  -- vim.cmd.normal("yygccp")
+  vim.cmd.normal("gmmkgccj")
 end)
 
 -- Put messages into buffer
